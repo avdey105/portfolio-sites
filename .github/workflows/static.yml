@@ -1,0 +1,39 @@
+name: Publish portfolio websites
+on:
+  push:
+    branches: [main]
+    paths:
+      - index.html
+      - "*.zip"
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/configure-pages@v5
+      - name: Assemble static websites
+        run: |
+          mkdir _site
+          cp index.html _site/
+          for site in *.zip; do
+            unzip -q "$site" -d _site
+          done
+          for site in holodok alterego-partners urbech candles modular; do
+            test -s "_site/$site/index.html"
+          done
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+      - uses: actions/deploy-pages@v4
+        id: deployment
