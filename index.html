@@ -3,45 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Демонстрации сайтов из портфолио Авдея Голубкова">
-  <title>Сайты · Авдей Голубков</title>
-  <style>
-    :root { color-scheme: light; font-family: system-ui, sans-serif; color: #181d26; background: #f6f4ef; }
-    * { box-sizing: border-box; }
-    body { margin: 0; }
-    main, footer { width: min(1070px, calc(100% - 40px)); margin-inline: auto; }
-    header { padding: clamp(52px, 10vw, 110px) 0 37px; }
-    h1 { margin: 0; max-width: 14ch; font: 400 clamp(3.25rem, 9vw, 6.7rem)/0.95 Georgia, serif; letter-spacing: -0.065em; }
-    header p { color: #535863; font-size: 1.05rem; margin: 23px 0 0; }
-    ul { margin: 0; padding: 0; list-style: none; }
-    .grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr)); }
-    .card { position: relative; display: flex; flex-direction: column; justify-content: flex-end; gap: 8px; min-height: 150px; padding: 25px 37px 25px 22px; background: #fff; border: 1px solid #dedbd3; border-radius: 12px; color: inherit; text-decoration: none; transition: background .15s; }
-    .card::after { position: absolute; top: 15px; right: 18px; content: '↗'; font-size: 1.2rem; }
-    .card:hover { background: #edeae2; }
-    .card:first-child { margin: 0; }
-    .grid > li:first-child .card { background: #263b55; color: #fff; border-color: #263b55; }
-    .grid > li:first-child .card:hover { background: #344e6e; }
-    .grid > li:first-child small { color: #e0eafa; }
-    strong { font: 400 1.7rem/1.1 Georgia, serif; }
-    small { font-size: .9rem; color: #535863; }
-    :focus-visible { outline: 3px solid #2251a2; outline-offset: 4px; }
-    h2 { margin: 34px 0 12px; font-size: 1.1rem; }
-    .external { display: flex; flex-wrap: wrap; gap: 10px 24px; }
-    .external a, footer a { color: #254466; text-underline-offset: 3px; }
-    footer { padding-block: 37px 44px; margin-top: 22px; border-top: 1px solid #dedbd3; font-size: .9rem; }
-  </style>
+  <meta name="description" content="Сайты и работы Авдея Голубкова">
+  <title>Портфолио · Авдей Голубков</title>
+  <link rel="stylesheet" href="cases/style.css">
 </head>
 <body>
-  <main>
-    <header><h1>Сайты и витрины</h1><p>Портфолио Авдея Голубкова</p></header>
-    <ul class="grid" aria-label="Демонстрации сайтов">
-      <li><a class="card" href="holodok/"><strong>«Холодок»</strong><small>Сайт сервиса ремонта</small></a></li>
-      <li><a class="card" href="alterego-partners/"><strong>Alter Ego</strong><small>Лендинг партнёрской программы</small></a></li>
-      <li><a class="card" href="urbech/"><strong>Витрина урбеча</strong><small>Каталог с поиском, фильтрами и корзиной</small></a></li>
-      <li><a class="card" href="candles/"><strong>«Ручной уют»</strong><small>Витрина свечей и подарков</small></a></li>
-      <li><a class="card" href="modular/"><strong>Модульные пространства</strong><small>Витрина с пошаговым брифом</small></a></li>
-    </ul>
-  </main>
-  <footer><a href="https://github.com/avdey105/portfolio-sites">Исходники демонстраций на GitHub</a></footer>
+  <main><header><h1>Авдей Голубков</h1><p>Сайты, маркетплейсы, товарные каталоги и автоматизация.</p></header><section class="section"><h2>Сайты и приложение</h2><ul class="grid"><li><a class="card" href="holodok/"><strong>«Холодок» · сайт сервиса</strong><span>Сайт ремонта холодильников в Москве и области.</span></a></li><li><a class="card" href="cases/android/"><strong>AlterEgo · приложение</strong><span>Создание персонажа через диалог, выбор изображения и сохранение карточки.</span></a></li><li><a class="card" href="urbech/"><strong>Урбеч · интернет-витрина</strong><span>Поиск по названиям, фильтры, карточки и корзина.</span></a></li><li><a class="card" href="candles/"><strong>«Ручной уют» · витрина свечей</strong><span>Одностраничная витрина свечей и подарочных наборов.</span></a></li><li><a class="card" href="alterego-partners/"><strong>Alter Ego · партнёрский сайт</strong><span>Адаптивный лендинг для авторов, которые знакомят аудиторию с приложением.</span></a></li><li><a class="card" href="modular/"><strong>Модульные пространства · сайт и бриф</strong><span>Витрина для предварительного подбора бытовки, дома или рабочего пространства.</span></a></li></ul></section><section class="section"><h2>Маркетплейсы</h2><ul class="grid"><li><a class="card" href="cases/yandex-market/"><strong>Яндекс Маркет · магазины</strong><span>Запуск и ведение магазинов, работа с товарами и заказами.</span></a></li><li><a class="card" href="cases/wildberries/"><strong>Wildberries · ассортимент и продажи</strong><span>Кроссовки по модели DBS. От карточек и размеров до выкупов.</span></a></li><li><a class="card" href="cases/avito/"><strong>Авито · объявления и каталоги</strong><span>Работа с объявлениями вручную и подготовка больших товарных шаблонов.</span></a></li></ul></section><section class="section"><h2>Автоматизация и отчёты</h2><ul class="grid"><li><a class="card" href="cases/telegram-export/"><strong>Telegram-бот · выгрузка товаров</strong><span>Пакет сообщений с товаром превращается в XLSX и отдельный архив вложений.</span></a></li><li><a class="card" href="cases/avirona/"><strong>Авито → Avirona · конвертер</strong><span>Скрипт читает многолистовый Excel Авито и выдаёт CSV другой площадки.</span></a></li><li><a class="card" href="cases/excel-stock/"><strong>Excel · сведение остатков</strong><span>Два остатка по моделям и цветам в одной итоговой таблице.</span></a></li><li><a class="card" href="https://github.com/avdey105/graph-enerator"><strong>Python · генератор свечных графиков</strong><span>Пакетная генерация PNG из временного ряда цен и объёмов.</span></a></li><li><a class="card" href="cases/power-bi/"><strong>Power BI · опрос в клинике</strong><span>Разбор опроса сотрудников и сравнение приоритетов по группам.</span></a></li></ul></section></main>
+  <footer><a href="./">Авдей Голубков · портфолио</a> · <a href="https://profi.ru/profile/GolubkovAV8/">Написать на Профи.ру</a></footer>
 </body>
 </html>
