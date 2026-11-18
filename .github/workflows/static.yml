@@ -5,6 +5,7 @@ on:
     paths:
       - index.html
       - "*.zip"
+      - .github/workflows/static.yml
   workflow_dispatch:
 permissions:
   contents: read
@@ -26,8 +27,8 @@ jobs:
         run: |
           mkdir _site
           cp index.html _site/
-          for site in *.zip; do
-            unzip -q "$site" -d _site
+          for site in holodok alterego-partners urbech candles modular work-cases; do
+            unzip -q "$site.zip" -d _site
           done
           for site in holodok alterego-partners urbech candles modular; do
             test -s "_site/$site/index.html"
