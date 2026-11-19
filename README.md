@@ -2,7 +2,7 @@
 
 [Открыть портфолио](https://avdey105.github.io/portfolio-sites/)
 
-В этом репозитории собраны сайты, исходники и примеры моих работ с каталогами и таблицами.
+Здесь можно открыть мои сайты и посмотреть, как я работаю с приложениями, торговыми каталогами и данными. Я разработал «Холодок» с нуля. В сохранённой версии доступны главная и десять внутренних страниц, включая диагностику и подбор по неисправности.
 
 | Работа | Посмотреть | Исходники |
 | --- | --- | --- |
@@ -15,6 +15,8 @@
 | Товарные сообщения Telegram → Excel | [Описание и пример](https://avdey105.github.io/portfolio-sites/cases/telegram-export/) | [Модуль выгрузки](telegram-excel-export.py) |
 | Nedviga News, бот о недвижимости | [Как устроен бот](https://avdey105.github.io/portfolio-sites/cases/nedviga/) · [Пример Excel](https://avdey105.github.io/portfolio-sites/cases/nedviga/nedviga-test-export.xlsx) | [Исходный модуль выгрузки](nedviga-excel-export.py) |
 | Работа с таблицами и товарными выгрузками | [Опыт и примеры](https://avdey105.github.io/portfolio-sites/cases/excel-stock/) | [Сведение остатков](merge_tables.py), [Авито → Avirona](convert_avito_to_avirona.py) |
+
+В коммерческих кейсах показываю, как вёл ассортимент и разбирал продажи на [Яндекс Маркете](https://avdey105.github.io/portfolio-sites/cases/yandex-market/) и [Wildberries](https://avdey105.github.io/portfolio-sites/cases/wildberries/). Отдельно описал [продажи и подготовку объявлений на Авито](https://avdey105.github.io/portfolio-sites/cases/avito/). Из работ с данными можно открыть [генератор изображений графиков](https://avdey105.github.io/portfolio-sites/cases/candlestick/) и [командный отчёт по опросу в клинике](https://avdey105.github.io/portfolio-sites/cases/power-bi/).
 
 Для размещения на GitHub Pages адаптированы адреса файлов. Формы заявок работают в режиме локальной демонстрации.
 
