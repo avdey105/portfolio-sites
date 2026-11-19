@@ -12,7 +12,7 @@
 | «Ручной уют», свечи и подарки | [Сайт](https://avdey105.github.io/portfolio-sites/candles/) · [Каталог и подарки](https://avdey105.github.io/portfolio-sites/cases/candles/) | [HTML, CSS, JavaScript и ресурсы](candles.zip) |
 | Alter Ego, лендинг для партнёров | [Сайт](https://avdey105.github.io/portfolio-sites/alterego-partners/) · [Сценарий для автора](https://avdey105.github.io/portfolio-sites/cases/partners/) | [Исходная вёрстка](alterego-partners.zip) |
 | Модульные пространства | [Сайт и бриф](https://avdey105.github.io/portfolio-sites/modular/) · [Как устроен подбор](https://avdey105.github.io/portfolio-sites/cases/modular/) | [HTML, CSS, JavaScript и ресурсы](modular.zip) |
-| Товарные сообщения Telegram → Excel | [Описание и пример](https://avdey105.github.io/portfolio-sites/cases/telegram-export/) | [Модуль выгрузки](telegram-excel-export.py) |
+| Товарные сообщения Telegram → Excel | [Разбор двух примеров](https://avdey105.github.io/portfolio-sites/cases/telegram-export/) · [Строка из фотоальбома](https://avdey105.github.io/portfolio-sites/cases/telegram-export/product-album.xlsx) · [Два вложения](https://avdey105.github.io/portfolio-sites/cases/telegram-export/product-album.zip) | [Модуль выгрузки](telegram-excel-export.py) |
 | Nedviga News, бот о недвижимости | [Как устроен бот](https://avdey105.github.io/portfolio-sites/cases/nedviga/) · [Пример Excel](https://avdey105.github.io/portfolio-sites/cases/nedviga/nedviga-test-export.xlsx) | [Исходный модуль выгрузки](nedviga-excel-export.py) |
 | Работа с таблицами и товарными выгрузками | [Опыт и примеры](https://avdey105.github.io/portfolio-sites/cases/excel-stock/) | [Сведение остатков](merge_tables.py), [Авито → Avirona](convert_avito_to_avirona.py) |
 
