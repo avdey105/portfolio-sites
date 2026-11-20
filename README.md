@@ -2,12 +2,12 @@
 
 [Открыть портфолио](https://avdey105.github.io/portfolio-sites/)
 
-Здесь можно открыть мои сайты и посмотреть, как я работаю с приложениями, торговыми каталогами и данными. Я разработал «Холодок» с нуля. В сохранённой версии доступны главная и десять внутренних страниц, включая диагностику и подбор по неисправности.
+Здесь собраны сайты, приложения и инструменты для торговли, над которыми я работал. Для «Холодка» подготовил дизайн и вёрстку, собрал поисковые запросы и подключил к серверу ИИ-помощника. В AlterEgo мы командой сделали мобильное приложение, где человек создаёт образ персонажа и обсуждает с ИИ-помощником, как действовать в похожем на него стиле.
 
 | Работа | Посмотреть | Исходники |
 | --- | --- | --- |
-| «Холодок», сайт ремонта холодильников | [Сайт](https://avdey105.github.io/portfolio-sites/holodok/) · [Как я разобрал поломки по страницам](https://avdey105.github.io/portfolio-sites/cases/holodok/) | [Вёрстка v53 и ресурсы для Pages](holodok.zip) |
-| AlterEgo для Android | [Экраны приложения](https://avdey105.github.io/portfolio-sites/cases/android/) | [Полноэкранный просмотр](FullscreenImageViewer.tsx), [геометрия просмотра](image-viewer-geometry.ts) |
+| «Холодок», сайт ремонта холодильников | [Сайт](https://avdey105.github.io/portfolio-sites/holodok/) · [Дизайн, поисковая подготовка, игра и чат](https://avdey105.github.io/portfolio-sites/cases/holodok/) | [Вёрстка v53 и ресурсы для Pages](holodok.zip) |
+| AlterEgo, командный MVP | [От анкеты до карточки персонажа в Android-приложении](https://avdey105.github.io/portfolio-sites/cases/android/) | [Код просмотра изображений](FullscreenImageViewer.tsx), [геометрия просмотра](image-viewer-geometry.ts) |
 | Дагдел, «Дагестанские деликатесы» | [Полный сайт](https://avdey105.github.io/portfolio-sites/urbech/?v=20261118) · [Карточки и корзина](https://avdey105.github.io/portfolio-sites/cases/dagdel/) | [Проект Next.js](dagdel-source.zip), [сборка для Pages](urbech.zip) |
 | «Ручной уют», свечи и подарки | [Сайт](https://avdey105.github.io/portfolio-sites/candles/) · [Каталог и подарки](https://avdey105.github.io/portfolio-sites/cases/candles/) | [HTML, CSS, JavaScript и ресурсы](candles.zip) |
 | Alter Ego, лендинг для партнёров | [Сайт](https://avdey105.github.io/portfolio-sites/alterego-partners/) · [Сценарий для автора](https://avdey105.github.io/portfolio-sites/cases/partners/) | [Исходная вёрстка](alterego-partners.zip) |
