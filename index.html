@@ -2,11 +2,11 @@
 <html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Авдей Голубков — портфолио</title><meta name="description" content="Сайты, приложения, торговля и автоматизация. 14 работ Авдея Голубкова в интерактивном портфолио."><meta name="theme-color" content="#6c0105">
 <meta property="og:type" content="website"><meta property="og:locale" content="ru_RU"><meta property="og:title" content="Авдей Голубков — портфолио"><meta property="og:description" content="Сайты, приложения и магазины. Истории 14 настоящих проектов."><meta property="og:image" content="plates/share.jpg">
-<link rel="icon" href="assets/favicon.png"><link rel="stylesheet" href="assets/fonts/fonts.css"><link rel="stylesheet" href="scene.css"><link rel="stylesheet" href="deck.css?v=ecbb1a08dcd4"><link rel="stylesheet" href="cover-portraits.css?v=461afdd6b538"><link rel="stylesheet" href="bot-cover.css"><link rel="stylesheet" href="projects.css"><link rel="stylesheet" href="archive.css"><link rel="stylesheet" href="contact.css?v=241d233116e4"><link rel="stylesheet" href="welcome.css?v=95db4e839ed7"><link rel="stylesheet" href="reader.css"></head><body data-tone="dark"><a class="skip-link" href="#archive">К списку работ</a>
+<link rel="icon" href="assets/favicon.png"><link rel="stylesheet" href="assets/fonts/fonts.css"><link rel="stylesheet" href="scene.css"><link rel="stylesheet" href="deck.css?v=ecbb1a08dcd4"><link rel="stylesheet" href="cover-portraits.css?v=461afdd6b538"><link rel="stylesheet" href="bot-cover.css"><link rel="stylesheet" href="projects.css"><link rel="stylesheet" href="archive.css?v=03273619274c"><link rel="stylesheet" href="contact.css?v=241d233116e4"><link rel="stylesheet" href="welcome.css?v=4bda8ab7453c"><link rel="stylesheet" href="reader.css"></head><body data-tone="dark"><a class="skip-link" href="#archive">К списку работ</a>
 <header id="mast" class="global-mast"><a class="wordmark" href="#web" aria-label="Авдей Голубков, первый слайд">Авдей Голубков.</a><nav aria-label="Разделы портфолио"><a href="#holodok">Проекты</a><a href="#archive">Архив</a><a href="#contact">Контакт</a></nav></header>
 <main id="deck" aria-label="Портфолио, слайды"><h1 class="visually-hidden">Портфолио Авдея Голубкова</h1>
 <section data-slide id="web" data-label="Портфолио" data-tone="dark" class="slide cover cover-web is-active"  aria-labelledby="web-title">
-    <div data-welcome-frame="1" style="--welcome-plate:url('plates/intro-01-phone.webp?v=a14f1e85f58b');--wide-plate:url('plates/intro-01-wide.webp')"><picture class="cover-photo"><source media="(max-aspect-ratio: 4/5)" srcset="plates/intro-01-phone.webp?v=a14f1e85f58b"><img src="plates/intro-01-wide.webp" width="1664" height="936" alt="Ледяной курсор отражается в полосках стекла на красном фоне." fetchpriority="high"></picture>
+    <div data-welcome-frame="1" style="--https-plate:url('plates/intro-01-https-phone.webp?v=dd6b5cffc6b1');--welcome-plate:url('plates/intro-01-phone.webp?v=a14f1e85f58b');--wide-plate:url('plates/intro-01-wide.webp')"><picture class="cover-photo"><source media="(max-width: 600px) and (max-aspect-ratio: 4/5)" srcset="plates/intro-01-https-phone.webp?v=dd6b5cffc6b1"><source media="(max-aspect-ratio: 4/5)" srcset="plates/intro-01-phone.webp?v=a14f1e85f58b"><img src="plates/intro-01-wide.webp" width="1664" height="936" alt="Ледяной курсор на красном фоне." fetchpriority="high"></picture>
 <div class="cover-copy"><p class="cover-topic">Веб-разработка</p><h2 id="web-title">Сайты<br> под ключ.</h2><p class="cover-deck">Здесь я собрал большую часть своих работ. К каждой добавил описание, а там, где можно посмотреть код, — ссылку на GitHub.</p><p class="cover-deck cover-service">Делаю сайты под ключ, пишу ботов и автоматизирую работу с данными. Несколько лет занимался онлайн-продажами, запускал интернет-магазины и настраивал рекламу.</p><a class="story-action" href="about.html">Подробнее обо мне <span aria-hidden="true">↗</span></a></div></div></section>
 <section data-slide id="ai" data-label="Приложения" data-tone="dark" class="slide cover cover-ai " inert aria-hidden="true" aria-labelledby="ai-title">
     <picture class="cover-photo"><source media="(max-aspect-ratio: 4/5)" srcset="plates/02-metal-phone.webp"><img src="plates/02-metal-wide.webp" width="1664" height="936" alt="Два человеческих профиля проступают в складках одной полированной стальной ленты." loading="lazy" decoding="async"></picture>
@@ -147,15 +147,21 @@
 <section class="slide folio-archive" data-slide id="archive" data-tone="light" data-label="Архив работ" aria-labelledby="folio-heading">
   <div class="folio-room">
     <div class="folio-index">
-      <h2 id="folio-heading">Ещё <i>11 работ.</i></h2>
+      <div class="folio-heading-row">
+        <h2 id="folio-heading">Ещё <i>11 работ.</i></h2>
+        <div class="folio-pager" data-deck-widget role="group" aria-label="Листать работы">
+          <button type="button" data-archive-step="-1" aria-label="Предыдущая работа"><span aria-hidden="true">←</span></button>
+          <button type="button" data-archive-step="1" aria-label="Следующая работа"><span aria-hidden="true">→</span></button>
+        </div>
+      </div>
       <div class="folio-browser" data-deck-widget>
         <div class="folio-groups" role="group" aria-label="Раздел работ">
           <button type="button" data-group-choice="sites" aria-pressed="true">Сайты</button>
           <button type="button" data-group-choice="trade" aria-pressed="false">Торговля</button>
           <button type="button" data-group-choice="data" aria-pressed="false">Инструменты</button>
         </div>
-        <div class="folio-choices" role="group" aria-label="Выбор проекта"></div>
-        <select class="folio-select" aria-label="Выбрать одну из одиннадцати работ"></select>
+        <div class="folio-choices" role="group" aria-label="Выбор проекта" data-no-swipe></div>
+        <span class="folio-status" aria-live="polite" aria-atomic="true"></span>
       </div>
     </div>
     <div class="folio-gallery"><article class="folio-piece folio-store" data-case="candles" data-group="sites" data-thumbnail="media/lx-candles.webp">
@@ -262,4 +268,4 @@
   </nav>
 </section>
 
-<noscript><aside class="no-script"><p>Работы Авдея Голубкова</p><a href="https://github.com/avdey105">GitHub ↗</a> · <a href="https://profi.ru/profile/GolubkovAV8/">Написать на Профи.ру ↗</a></aside></noscript><script src="scene.js" defer></script><script src="projects.js" defer></script><script src="archive.js" defer></script><script src="reader-data.js" defer></script><script src="reader.js" defer></script><script src="deck.js?v=18ff884bb95f" defer></script></body></html>
+<noscript><aside class="no-script"><p>Работы Авдея Голубкова</p><a href="https://github.com/avdey105">GitHub ↗</a> · <a href="https://profi.ru/profile/GolubkovAV8/">Написать на Профи.ру ↗</a></aside></noscript><script src="scene.js" defer></script><script src="projects.js" defer></script><script src="archive.js?v=943707b636c1" defer></script><script src="reader-data.js" defer></script><script src="reader.js" defer></script><script src="deck.js?v=74b5e5ab5a8d" defer></script></body></html>
