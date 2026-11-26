@@ -2,7 +2,302 @@
 <html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Авдей Голубков — портфолио</title><meta name="description" content="Сайты, приложения, торговля и автоматизация. 14 работ Авдея Голубкова в интерактивном портфолио."><meta name="theme-color" content="#6c0105">
 <meta property="og:type" content="website"><meta property="og:locale" content="ru_RU"><meta property="og:title" content="Авдей Голубков — портфолио"><meta property="og:description" content="Сайты, приложения и магазины. Истории 14 настоящих проектов."><meta property="og:image" content="plates/share.jpg">
-<link rel="icon" href="assets/favicon.png"><link rel="stylesheet" href="assets/fonts/fonts.css"><link rel="stylesheet" href="scene.css"><link rel="stylesheet" href="deck.css?v=ecbb1a08dcd4"><link rel="stylesheet" href="cover-portraits.css?v=89b615b24cf8"><link rel="stylesheet" href="bot-cover.css"><link rel="stylesheet" href="projects.css"><link rel="stylesheet" href="archive.css?v=03273619274c"><link rel="stylesheet" href="contact.css?v=241d233116e4"><link rel="stylesheet" href="welcome.css?v=af8b4b22d5e9"><link rel="stylesheet" href="reader.css"></head><body data-tone="dark"><a class="skip-link" href="#archive">К списку работ</a>
+<link rel="icon" href="assets/favicon.png"><link rel="stylesheet" href="assets/fonts/fonts.css"><link rel="stylesheet" href="scene.css"><link rel="stylesheet" href="deck.css?v=ecbb1a08dcd4"><link rel="stylesheet" href="cover-portraits.css?v=89b615b24cf8"><link rel="stylesheet" href="bot-cover.css"><link rel="stylesheet" href="projects.css"><link rel="stylesheet" href="archive.css?v=03273619274c"><link rel="stylesheet" href="contact.css?v=241d233116e4"><link rel="stylesheet" href="welcome.css?v=af8b4b22d5e9"><link rel="stylesheet" href="reader.css"><style>
+/* The action sits above the slide controls. Allow the story, rather than the
+   length of its last paragraph, to determine where the picture ends. */
+@media (max-width: 600px) and (max-aspect-ratio: 4/5) {
+  :root {
+    --phone-cta-bottom: calc(env(safe-area-inset-bottom) + clamp(70px, 20.5dvh - 52px, 130px));
+    --phone-art-top: calc(env(safe-area-inset-top) + var(--chrome-top) + var(--edge-shift) + 6px);
+  }
+  .cover.is-entering .cover-copy { --entry-y: 0px; }
+
+  #web {
+    --opening-padding: calc(env(safe-area-inset-bottom) + var(--chrome-bottom) + var(--edge-shift) + clamp(6px, 1.8dvh, 22px));
+    padding-bottom: var(--opening-padding);
+  }
+  #web [data-welcome-frame="1"] .cover-copy {
+    align-self: end;
+    top: calc(var(--opening-padding) - var(--phone-cta-bottom));
+  }
+
+  :is(#ai, #shop, #bot, #analytics) {
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto;
+    gap: clamp(8px, 1.4dvh, 14px);
+    padding-block: var(--phone-art-top) var(--phone-cta-bottom);
+  }
+  :is(#ai, #shop, #bot, #analytics) .cover-copy {
+    position: relative;
+    inset: auto;
+    width: auto;
+    min-height: max(0px, calc(49dvh - var(--phone-cta-bottom)));
+    margin-inline: var(--gutter);
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+    transform: none;
+  }
+  :is(#ai, #shop, #bot, #analytics) .cover-copy > :is(.story-action, .cover-actions) {
+    margin-top: auto;
+  }
+  :is(#ai, #shop, #bot, #analytics) .cover-copy > :is(.cover-deck:last-of-type, .cover-compact) {
+    margin-bottom: clamp(7px, 1.25dvh, 12px);
+  }
+  #analytics .cover-actions .story-action { margin: 0; }
+
+  /* The opaque centre is the original photograph at a uniform scale. Extend
+     only the four empty studio margins to cover the phone, including its notch. */
+  :is(#ai, #shop, #analytics) .cover-photo {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    aspect-ratio: auto;
+    container-type: size;
+    overflow: visible;
+    translate: none;
+    background: none;
+    mask: none;
+  }
+  #shop .cover-photo { --art-width: min(100cqw, 127cqh); --subject-centre: .535; --art-nudge: 6px; }
+  #ai .cover-photo { --art-width: min(100cqw, 109cqh); --subject-centre: .58; }
+  #analytics .cover-photo { --art-width: min(100cqw, 129cqh); --subject-centre: .51; }
+  :is(#ai, #shop, #analytics) .cover-photo::before {
+    content: "";
+    inset: calc(0px - var(--phone-art-top)) 0 auto;
+    height: 100dvh;
+    --plate-height: calc(var(--art-width) * var(--photo-ratio, 1.77778));
+    --plate-top: calc(var(--phone-art-top) + 50cqh + var(--art-nudge, 0px) - var(--subject-centre) * var(--art-width));
+    --side: calc((100% - .95 * var(--art-width)) / 2);
+    border-image-source: var(--studio-photo);
+    border-image-slice: 4% 2.5% 28% fill;
+    border-image-width: calc(var(--plate-top) + .04 * var(--plate-height)) var(--side)
+                        calc(100dvh - var(--plate-top) - .72 * var(--plate-height)) var(--side);
+  }
+  :is(#ai, #shop, #analytics) .cover-photo img { opacity: 0; }
+
+  #bot .export-scene {
+    position: relative;
+    inset: auto;
+    place-self: center;
+    width: min(85vw, 42dvh);
+    margin: 0;
+    transform: rotate(-4deg);
+  }
+}
+
+/* A wide handset with its address bar open can have less room above the
+   headline than a narrower, taller phone. Set the command on one line. */
+@media (min-width: 421px) and (max-width: 600px) and (max-height: 820px) and (max-aspect-ratio: 4/5) {
+  #bot .export-command {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 0 4% 4%;
+  }
+  #bot .export-command > span { margin: 0; }
+  #bot .export-table :is(th, td) { padding-block: .32em; }
+}
+
+@media (max-width: 600px) and (max-aspect-ratio: 4/5) {
+  .project-slide .chapter-spread {
+    top: var(--phone-art-top);
+    bottom: var(--phone-cta-bottom);
+    grid-template-rows: minmax(0, 46fr) minmax(max-content, 54fr);
+    align-content: stretch;
+    row-gap: clamp(10px, 2dvh, 18px);
+  }
+
+  .chapter-view {
+    container-type: size;
+    align-self: stretch;
+    display: grid;
+    grid-auto-rows: max-content;
+    align-content: center;
+    justify-items: center;
+    min-height: 0;
+    max-width: none;
+  }
+
+  /* Fit the full photograph above the gallery controls on shorter displays. */
+  .chapter-screen {
+    width: min(100%, max(0px, 100cqh - 45px) * var(--plate-ratio));
+  }
+  .chapter-bar { width: 100%; }
+
+  .chapter-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+  }
+  .chapter-copy > p:not([class]) { margin-bottom: 5px; }
+  .chapter-link { margin-top: auto; }
+
+  .folio-room {
+    top: var(--phone-art-top);
+    bottom: var(--phone-cta-bottom);
+  }
+  .folio-piece {
+    grid-template-rows: minmax(0, 1fr) minmax(max-content, 40%);
+  }
+  .folio-caption {
+    grid-template-rows: auto minmax(min-content, 1fr) auto;
+    align-items: start;
+  }
+
+  #contact.calling-slide {
+    grid-template-rows: minmax(0, 1fr) auto;
+    padding-bottom: var(--phone-cta-bottom);
+  }
+}
+
+@media (max-width: 600px) and (max-aspect-ratio: 4/5) and (max-height: 745px) {
+  .project-slide .chapter-spread {
+    grid-template-rows: minmax(0, 51fr) minmax(max-content, 49fr);
+    row-gap: 12px;
+  }
+  .folio-piece {
+    grid-template-rows: minmax(0, 1fr) minmax(max-content, 49%);
+  }
+}
+
+@media (max-width: 600px) and (max-aspect-ratio: 4/5) and (max-height: 615px) {
+  .project-slide .chapter-spread {
+    grid-template-rows: minmax(0, 45fr) minmax(max-content, 55fr);
+    row-gap: 8px;
+  }
+}
+
+@media (orientation: landscape) and (pointer: coarse) and (max-width: 960px) and (max-height: 500px) {
+  :root {
+    --gutter: max(clamp(18px, 4vw, 38px), env(safe-area-inset-left), env(safe-area-inset-right));
+    --stage-top: calc(env(safe-area-inset-top) + var(--chrome-top) + var(--edge-shift) + 6px);
+    --stage-bottom: calc(env(safe-area-inset-bottom) + var(--chrome-bottom) + var(--edge-shift) + 10px);
+  }
+
+  :is(#web, #ai, #shop, #bot, #analytics) .cover-copy,
+  #contact .calling-inner {
+    top: var(--stage-top);
+    bottom: var(--stage-bottom);
+    left: var(--gutter);
+    width: 47%;
+    margin: 0;
+    transform: none;
+  }
+  :is(#web, #ai, #shop, #bot, #analytics) .cover-copy,
+  .chapter-copy,
+  #contact .calling-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  :is(#web, #ai, #shop, #bot, #analytics) .cover-topic {
+    font-size: 10px;
+    line-height: 1.15;
+    margin: auto 0 6px;
+  }
+  :is(#web, #ai, #shop, #bot, #analytics) .cover-copy h2 {
+    font-size: clamp(25px, min(4.9vw, 8.5dvh), 41px);
+    line-height: 1.04;
+    white-space: normal;
+  }
+  #web [data-welcome-frame="1"] h2 br,
+  :is(#ai, #shop, #bot, #analytics) .cover-copy h2 br { display: none; }
+  :is(#web, #ai, #shop, #bot, #analytics) .cover-deck,
+  #contact .calling-copy > p {
+    max-width: none;
+    margin-top: 6px;
+    font-size: clamp(12px, 3.25dvh, 15px);
+    line-height: 1.26;
+  }
+  :is(#web, #ai, #shop, #bot, #analytics) .cover-deck + .cover-deck,
+  #contact .calling-copy > p + p { margin-top: 4px; }
+  :is(#web, #ai, #shop, #bot, #analytics) .story-action,
+  :is(#web, #analytics) :is(.welcome-actions, .cover-actions),
+  .chapter-copy .chapter-link,
+  #contact .calling-links {
+    margin-top: auto;
+    flex: none;
+  }
+  :is(#web, #ai, #shop, #bot, #analytics) .story-action,
+  #contact .calling-links a,
+  #contact .calling-links a:first-child { min-height: 44px; }
+
+  :is(#ai, #analytics) .cover-photo {
+    inset: 50% -1% auto auto;
+    width: min(82vw, 136dvh);
+    height: auto;
+    aspect-ratio: 16 / 9;
+    translate: 0 -50%;
+    mask-image: linear-gradient(90deg, transparent, #000 18%), linear-gradient(transparent, #000 12% 89%, transparent);
+    mask-composite: intersect;
+  }
+  :is(#ai, #analytics) .cover-photo img {
+    scale: 1;
+    object-fit: contain;
+    object-position: center;
+  }
+  #analytics::before { content: none; }
+  #bot .export-scene { width: min(40vw, 68dvh); right: 6%; }
+  .export-command {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0 0 4% 5%;
+  }
+  .export-command > span { margin: 0; }
+  .export-sheet-name { margin-block: .13em; font-size: clamp(26px, 8dvh, 38px); }
+  .export-paper-content { padding-block: 3% 4%; }
+  .export-table th, .export-table td { padding-block: .26em; }
+
+  .project-slide .chapter-spread {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: clamp(14px, 3.4vw, 32px);
+  }
+  .chapter-copy { align-self: stretch; }
+  .chapter-copy .chapter-type { margin-top: auto; }
+
+  .folio-room {
+    top: var(--stage-top);
+    bottom: var(--stage-bottom);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr);
+    gap: 6px clamp(14px, 3.4vw, 32px);
+    grid-template-areas: "index caption" "image caption";
+  }
+  .folio-index { grid-area: index; }
+  .folio-archive h2 { font-size: clamp(24px, 4.2vw, 34px); }
+  .folio-gallery, .folio-piece:not([hidden]) { display: contents; }
+  .folio-frame { grid-area: image; align-self: stretch; }
+  .folio-caption {
+    grid-area: caption;
+    align-self: stretch;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: 1fr auto 1fr;
+    gap: 5px;
+    align-items: start;
+  }
+  .folio-caption > div { align-self: end; }
+  .folio-open { grid-row: 3; align-self: end; justify-self: start; }
+  .folio-story { grid-row: 2; }
+
+  #contact .calling-inner { align-items: stretch; }
+  #contact .calling-copy h2 { margin-top: auto; }
+}
+
+@media (orientation: landscape) and (pointer: coarse) and (max-width: 650px) and (max-height: 370px) {
+  :is(#web, #ai) .cover-copy { width: 51%; }
+  #analytics .cover-copy { width: 55%; }
+  :is(#web, #ai, #analytics) .cover-topic { margin-bottom: 3px; }
+  :is(#web, #ai, #analytics) .cover-copy h2 { font-size: clamp(24px, 7.75dvh, 29px); }
+  :is(#web, #ai, #analytics) .cover-deck,
+  :is(#web, #ai, #analytics) .cover-deck + .cover-deck { margin-top: 3px; line-height: 1.2; }
+}
+
+</style></head><body data-tone="dark"><a class="skip-link" href="#archive">К списку работ</a>
 <header id="mast" class="global-mast"><a class="wordmark" href="#web" aria-label="Авдей Голубков, первый слайд">Авдей Голубков.</a><nav aria-label="Разделы портфолио"><a href="#holodok">Проекты</a><a href="#archive">Архив</a><a href="#contact">Контакт</a></nav></header>
 <main id="deck" aria-label="Портфолио, слайды"><h1 class="visually-hidden">Портфолио Авдея Голубкова</h1>
 <section data-slide id="web" data-label="Портфолио" data-tone="dark" class="slide cover cover-web is-active"  aria-labelledby="web-title">
