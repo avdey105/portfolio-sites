@@ -113,10 +113,8 @@
   }
 }
 
-/* A wide handset with its address bar open can have less room above the
-   headline than a narrower, taller phone. Set the command on one line. */
 @media (min-width: 500px) and (max-width: 600px) and (min-aspect-ratio: 2/3) and (max-aspect-ratio: 4/5) {
-  #bot .cover-copy .cover-deck {
+  #bot .cover-copy > .cover-deck:last-of-type {
     margin-top: auto;
     margin-bottom: calc(.7 * clamp(7px, 1.25dvh, 12px));
     font-size: min(3.93vw, 19px);
@@ -124,6 +122,7 @@
   #bot .cover-copy .story-action { margin-top: 0; }
   :is(#shop, #bot) .cover-copy .story-action { padding-bottom: calc(3px + .4em); }
 }
+/* Keep the table and its command clear of the text on wider, shorter phones. */
 @media (min-width: 421px) and (max-width: 600px) and (max-height: 820px) and (max-aspect-ratio: 4/5) {
   #bot .export-command {
     display: flex;
