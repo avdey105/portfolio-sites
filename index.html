@@ -2,7 +2,7 @@
 <html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Авдей Голубков — портфолио</title><meta name="description" content="Сайты, приложения, торговля и автоматизация. 14 работ Авдея Голубкова в интерактивном портфолио."><meta name="theme-color" content="#6c0105">
 <meta property="og:type" content="website"><meta property="og:locale" content="ru_RU"><meta property="og:title" content="Авдей Голубков — портфолио"><meta property="og:description" content="Сайты, приложения и магазины. Истории 14 настоящих проектов."><meta property="og:image" content="plates/share.jpg">
-<link rel="icon" href="assets/favicon.png"><link rel="stylesheet" href="assets/fonts/fonts.css"><link rel="stylesheet" href="scene.css"><link rel="stylesheet" href="deck.css?v=ecbb1a08dcd4"><link rel="stylesheet" href="cover-portraits.css?v=89b615b24cf8"><link rel="stylesheet" href="bot-cover.css"><link rel="stylesheet" href="projects.css"><link rel="stylesheet" href="archive.css?v=03273619274c"><link rel="stylesheet" href="contact.css?v=241d233116e4"><link rel="stylesheet" href="welcome.css?v=af8b4b22d5e9"><link rel="stylesheet" href="reader.css"><style>
+<link rel="icon" href="assets/favicon.png"><link rel="stylesheet" href="assets/fonts/fonts.css"><link rel="stylesheet" href="scene.css"><link rel="stylesheet" href="deck.css?v=ecbb1a08dcd4"><link rel="stylesheet" href="cover-portraits.css?v=89b615b24cf8"><link rel="stylesheet" href="bot-cover.css"><link rel="stylesheet" href="projects.css"><link rel="stylesheet" href="archive.css?v=03273619274c"><link rel="stylesheet" href="contact.css?v=fb646688ab4d"><link rel="stylesheet" href="welcome.css?v=af8b4b22d5e9"><link rel="stylesheet" href="reader.css"><style>
 /* The action sits above the slide controls. Allow the story, rather than the
    length of its last paragraph, to determine where the picture ends. */
 .contact-phone { display: none; }
@@ -135,6 +135,21 @@
 }
 
 @media (max-width: 600px) and (max-aspect-ratio: 4/5) {
+  #bot .export-scene { transform: scale(.91) rotate(-4deg); }
+}
+@media (max-width: 600px) and (max-aspect-ratio: 4/5) and (max-height: 780px) {
+  #bot .export-scene { transform: scale(.74) rotate(-4deg); }
+}
+@media (max-width: 600px) and (max-aspect-ratio: 4/5) and (max-height: 640px) {
+  #bot .export-scene { transform: scale(.59) rotate(-4deg); }
+}
+
+@media (min-width: 961px) and (max-height: 860px) {
+  #analytics .cover-deck { max-width: 47ch; font-size: clamp(16px,1.25vw,21px); }
+  #alterego .chapter-copy > p:not([class]) { max-width: none; font-size: clamp(17px,1.35vw,21px); }
+}
+
+@media (max-width: 600px) and (max-aspect-ratio: 4/5) {
   .project-slide .chapter-spread {
     top: var(--phone-art-top);
     bottom: var(--phone-cta-bottom);
@@ -209,6 +224,26 @@
     grid-template-rows: minmax(0, 45fr) minmax(max-content, 55fr);
     row-gap: 8px;
   }
+}
+
+/* Reserve a recognisable image even when the full copy exceeds a short phone. */
+@media (max-width: 600px) and (max-aspect-ratio: 4/5) and (max-height: 680px) {
+  #alterego .chapter-spread {
+    grid-template-rows: minmax(112px, 28fr) minmax(0, 72fr);
+  }
+  #contact.calling-slide {
+    grid-template-rows: minmax(102px, 25fr) minmax(0, 75fr);
+  }
+  #contact .calling-inner { align-self: stretch; min-height: 0; }
+  #contact .calling-copy { max-height: 100%; }
+  #alterego .chapter-copy, #contact .calling-copy {
+    overflow-y: auto;
+    min-height: 0;
+    overscroll-behavior: contain;
+    touch-action: pan-y pinch-zoom;
+    scrollbar-width: thin;
+  }
+  #alterego .chapter-copy > * { flex-shrink: 0; }
 }
 
 @media (orientation: landscape) and (pointer: coarse) and (max-width: 960px) and (max-height: 500px) {
@@ -356,18 +391,52 @@
   :is(#web, #ai, #analytics) .cover-deck + .cover-deck { margin-top: 3px; line-height: 1.2; }
 }
 
+@media (orientation: landscape) and (pointer: coarse) and (max-height: 500px) and (max-width: 960px) {
+  #contact .calling-copy { height: 100%; }
+  #contact .direct-contacts { margin-top: 5px; gap: 0 12px; font-size: 12px; }
+  #contact .direct-contacts a { min-height: 24px; }
+  #contact .calling-copy > * { flex-shrink: 0; }
+  #contact .calling-copy {
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    touch-action: pan-y pinch-zoom;
+    scrollbar-width: thin;
+  }
+}
+@media (orientation: landscape) and (pointer: coarse) and (max-height: 370px) and (max-width: 700px) {
+  #bot .cover-copy {
+    top: var(--stage-top);
+    bottom: var(--stage-bottom);
+    min-height: 0;
+  }
+  :is(#web,#ai,#bot,#analytics) .cover-copy,
+  .project-slide .chapter-copy,
+  .folio-caption {
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    touch-action: pan-y pinch-zoom;
+    scrollbar-width: thin;
+  }
+  :is(#web,#ai,#bot,#analytics) .cover-copy > *,
+  .project-slide .chapter-copy > * { flex-shrink: 0; }
+  .project-slide .chapter-spread { grid-template-rows: minmax(0,1fr); }
+  .folio-caption { display: flex; flex-direction: column; }
+  .folio-caption > div { align-self: start; }
+  .folio-caption > * { flex-shrink: 0; }
+  .folio-caption .folio-story { order: 1; }
+  .folio-caption .folio-open { order: 2; margin-top: auto; }
+}
+
 </style></head><body data-tone="dark"><a class="skip-link" href="#archive">К списку работ</a>
 <header id="mast" class="global-mast"><a class="wordmark" href="#web" aria-label="Авдей Голубков, первый слайд">Авдей Голубков.</a><nav aria-label="Разделы портфолио"><a href="#holodok">Проекты</a><a href="#archive">Архив</a><a href="#contact">Контакт</a></nav></header>
 <main id="deck" aria-label="Портфолио, слайды"><h1 class="visually-hidden">Портфолио Авдея Голубкова</h1>
 <section data-slide id="web" data-label="Портфолио" data-tone="dark" class="slide cover cover-web is-active"  aria-labelledby="web-title">
     <div data-welcome-frame="1" style="--https-plate:url('plates/intro-01-https-phone.webp?v=dd6b5cffc6b1');--welcome-plate:url('plates/intro-01-phone.webp?v=a14f1e85f58b');--wide-plate:url('plates/intro-01-wide.webp')"><picture class="cover-photo"><source media="(max-width: 600px) and (max-aspect-ratio: 4/5)" srcset="plates/intro-01-https-phone.webp?v=dd6b5cffc6b1"><source media="(max-aspect-ratio: 4/5)" srcset="plates/intro-01-phone.webp?v=a14f1e85f58b"><img src="plates/intro-01-wide.webp" width="1664" height="936" alt="Ледяной курсор на красном фоне." fetchpriority="high"></picture>
-<div class="cover-copy"><p class="cover-topic">Веб-разработка</p><h2 id="web-title">Сайты<br> под ключ.</h2><p class="cover-deck">Здесь я собрал большую часть своих работ. К каждой добавил описание. Если код открыт, рядом есть ссылка на GitHub.</p><p class="cover-deck cover-service">Делаю сайты, пишу ботов и автоматизирую работу с данными. Несколько лет вёл интернет-магазины и настраивал рекламу. Когда берусь за каталог, спрашиваю продавца, где он обновляет цены и как ему удобнее получать заказы.</p><a class="story-action" href="about.html">Подробнее обо мне <span aria-hidden="true">↗</span></a></div></div></section>
+<div class="cover-copy"><p class="cover-topic">Веб-разработка</p><h2 id="web-title">Сайты<br> под ключ.</h2><p class="cover-deck">Здесь я собрал большую часть своих работ. К каждой добавил описание. Если код открыт, рядом есть ссылка на GitHub.</p><p class="cover-deck cover-service">Делаю сайты, пишу ботов и автоматизирую работу с данными. Несколько лет вёл интернет-магазины и настраивал рекламу. Имею большой опыт в маркетинге, уверенно работаю с нейросетями и использую разные платные ИИ-инструменты для генерации фото и видео, работы с промптами и кодом.</p><a class="story-action" href="about.html">Подробнее обо мне <span aria-hidden="true">↗</span></a></div></div></section>
 <section data-slide id="ai" data-label="Приложения" data-tone="dark" class="slide cover cover-ai " inert aria-hidden="true" aria-labelledby="ai-title">
     <picture class="cover-photo"><source media="(max-aspect-ratio: 4/5)" srcset="plates/02-metal-phone.webp"><img src="plates/02-metal-wide.webp" width="1664" height="936" alt="Два человеческих профиля проступают в складках одной полированной стальной ленты." loading="lazy" decoding="async"></picture>
-<div class="cover-copy"><p class="cover-topic">AlterEgo</p><h2 id="ai-title">Разработка<br> <i>приложений</i></h2><div class="cover-full"><p class="cover-deck">Заказчику нужен был MVP для показа инвестору. Я разработал AlterEgo для Android и iOS. В нём можно создать своё второе «я» по фото и спросить, как оно поступило бы на переговорах.</p><p class="cover-deck cover-service">Сам сделал интерфейс и сервер, настроил вход через Google и сохранение профилей. Для чата подключил DeepSeek, для портретов — GPT Image от OpenAI.</p></div><div class="cover-compact"><p class="cover-deck">Заказчику нужен был MVP для инвестора. Разработал AlterEgo для Android и iOS. В нём можно создать второе «я» по фото и попросить у него совета.</p><p class="cover-deck">Сам сделал интерфейс и сервер, настроил вход через Google и хранение профилей. Чат ведёт DeepSeek, портреты создаёт GPT Image от OpenAI.</p></div><a class="story-action" href="#alterego">Посмотреть AlterEgo <span aria-hidden="true">↗</span></a></div></section>
-<section data-slide id="shop" data-label="Каталоги" data-tone="light" class="slide cover cover-shop " inert aria-hidden="true" style="--studio-photo:url('plates/03-nut-phone.webp?v=8b357628fd8b');--portrait-floor:var(--studio-photo);--film:url('plates/03-nut-wide.webp?v=16967b10a05c')" aria-labelledby="shop-title">
-    <picture class="cover-photo"><source media="(max-aspect-ratio: 4/5)" srcset="plates/03-nut-phone.webp?v=8b357628fd8b"><source media="(max-aspect-ratio: 3/2)" srcset="plates/03-nut-square.webp"><img src="plates/03-nut-wide.webp?v=16967b10a05c" width="1664" height="936" alt="Открытая банка фисташкового урбеча, орехи и нож в боковом свете." loading="lazy" decoding="async"></picture>
-<div class="cover-copy"><p class="cover-topic">Дагдел · интернет-магазин</p><h2 id="shop-title">Вкус<br> <i>на витрине.</i></h2><p class="cover-deck">В «Дагделе» можно собрать сыр, пирог и банку урбеча в одну корзину. Если цену нужно уточнить, товар всё равно остаётся в списке покупателя.</p><a class="story-action" href="#dagdel">Открыть «Дагдел» <span aria-hidden="true">↗</span></a></div></section>
+<div class="cover-copy"><p class="cover-topic">AlterEgo</p><h2 id="ai-title">Разработка<br> <i>приложений</i></h2><div class="cover-full"><p class="cover-deck">Заказчику нужен был MVP для показа инвестору. По его заказу я разработал кроссплатформенное приложение для создания альтер эго (alter ego) на iOS и Android. В нём можно создать своё второе «я» — улучшенную версию себя, подобрать стиль по фотографии и обратиться за советом к нейросети.</p><p class="cover-deck cover-service">Сам сделал интерфейс и сервер, настроил вход через Google и сохранение профилей. Для чата подключил DeepSeek, для портретов — GPT Image от OpenAI.</p></div><div class="cover-compact"><p class="cover-deck">Заказчику нужен был MVP для инвестора. Разработал кроссплатформенное приложение AlterEgo для iOS и Android. В нём можно создать улучшенную версию себя, подобрать стиль по фото и обратиться за советом к нейросети.</p><p class="cover-deck">Сам сделал интерфейс и сервер, настроил вход через Google и хранение профилей. Чат ведёт DeepSeek, портреты создаёт GPT Image от OpenAI.</p></div><a class="story-action" href="#alterego">Посмотреть AlterEgo <span aria-hidden="true">↗</span></a></div></section>
 <section data-slide id="bot" data-label="Автоматизация" data-tone="dark" class="slide cover cover-bot " inert aria-hidden="true" aria-labelledby="bot-title">
     <figure class="export-scene" aria-label="Как бот превращает подборку постов в прайс">
   <div class="export-command">
@@ -390,10 +459,10 @@
   </div>
 </figure>
 
-<div class="cover-copy"><p class="cover-topic">Telegram и Excel</p><h2 id="bot-title">Из чата<br> в таблицу.</h2><p class="cover-deck">Сделал бота для закупок. Ему пересылают посты поставщиков, а он собирает цены в Excel и раскладывает фотографии по папкам товаров в ZIP-архиве.</p><a class="story-action" href="cases/telegram-export/index.html" data-case-link="telegram-export">Как устроена выгрузка <span aria-hidden="true">↗</span></a></div></section>
+<div class="cover-copy"><p class="cover-topic">Telegram и Excel</p><h2 id="bot-title">Из чата<br> в таблицу.</h2><p class="cover-deck">Работая с маркетплейсами, столкнулся с неудобством: поставщики публиковали товары в Telegram вместо привычного прайс-листа. Я разработал бота, которому можно переслать сообщения из одного или нескольких каналов. С помощью нейросети, подключённой через API, бот извлекает названия и цены товаров в Excel, а фотографии распределяет по папкам и собирает в ZIP-архив.</p><a class="story-action" href="cases/telegram-export/index.html" data-case-link="telegram-export">Как устроена выгрузка <span aria-hidden="true">↗</span></a></div></section>
 <section data-slide id="analytics" data-label="Аналитика" data-tone="dark" class="slide cover cover-analytics " inert aria-hidden="true" aria-labelledby="analytics-title">
     <picture class="cover-photo"><source media="(max-aspect-ratio: 4/5)" srcset="plates/05-glass-phone.webp"><source media="(max-aspect-ratio: 3/2)" srcset="plates/05-glass-square.webp"><img src="plates/05-glass-wide.webp" width="1664" height="936" alt="На деревянных счётах янтарные косточки сдвинуты по латунным спицам." loading="lazy" decoding="async"></picture>
-<div class="cover-copy"><p class="cover-topic">Продажи на маркетплейсах</p><h2 id="analytics-title">Сколько<br> <i>доставили?</i></h2><p class="cover-deck">Вёл магазины на Яндекс Маркете и Wildberries. С мая 2025-го по апрель 2026-го на Маркете доставили товаров на <span class="market-figure">10,5 млн ₽</span>. Магазин кроссовок на Wildberries за <span class="market-figure">90 дней</span> получил <span class="market-figure">59 заказов</span> на <span class="market-figure">521 тыс. ₽</span>. Покупатели выкупили <span class="market-figure">36 пар</span> на <span class="market-figure">325 тыс. ₽</span>.</p><p class="cover-deck cover-service">Готовлю карточки товаров, настраиваю рекламу и по воронке продаж нахожу, на каком этапе магазин теряет покупателей.</p><div class="cover-actions"><a class="story-action" href="cases/yandex-market/index.html" data-case-link="yandex-market">Яндекс Маркет <span aria-hidden="true">↗</span></a><a class="story-action" href="cases/wildberries/index.html" data-case-link="wildberries">Wildberries <span aria-hidden="true">↗</span></a></div></div></section>
+<div class="cover-copy"><p class="cover-topic">Продажи на маркетплейсах</p><h2 id="analytics-title">Сколько<br> <i>доставили?</i></h2><p class="cover-deck">Вёл магазины на Яндекс Маркете и Wildberries. С мая 2025-го по апрель 2026-го на Маркете доставили товаров на <span class="market-figure">10,5 млн ₽</span>. Магазин кроссовок на Wildberries за <span class="market-figure">90 дней</span> получил <span class="market-figure">59 заказов</span> на <span class="market-figure">521 тыс. ₽</span>. Покупатели выкупили <span class="market-figure">36 пар</span> на <span class="market-figure">325 тыс. ₽</span>.</p><p class="cover-deck cover-service">Готовлю карточки товаров, настраиваю рекламу и анализирую воронку продаж. Нахожу, на каком этапе магазин теряет покупателей, и устраняю слабые места, чтобы повышать продажи и оптимизировать процессы.</p><div class="cover-actions"><a class="story-action" href="cases/yandex-market/index.html" data-case-link="yandex-market">Яндекс Маркет <span aria-hidden="true">↗</span></a><a class="story-action" href="cases/wildberries/index.html" data-case-link="wildberries">Wildberries <span aria-hidden="true">↗</span></a></div></div></section>
 <section aria-labelledby="cold-project" class="slide project-slide chapter-cold" data-label="Холодок" data-slide="" data-tone="light" id="holodok">
 <div class="chapter-spread">
 <figure aria-label="Демонстрация «Холодка»" class="chapter-view" data-chapter-player="">
@@ -457,7 +526,7 @@
 <p class="chapter-type">Мобильное приложение · MVP</p>
 <h2 id="ego-project">Alter<i>Ego</i></h2>
 <p class="chapter-standfirst">За советом к своему второму «я».</p>
-<p>Заказчику нужна была рабочая версия для встречи с инвестором. Я сделал её с нуля. <span class="chapter-extra">В короткой анкете человек задаёт характер персонажа, добавляет фотографию и получает собеседника, похожего на себя.</span></p>
+<p>Заказчику нужна была рабочая версия приложения для встречи с инвестором. Я сделал её с нуля. Пользователь проходит короткую анкету, обсуждает с нейросетью желаемые качества персонажа и добавляет фотографию. В результате он получает образ своей улучшенной версии — альтер эго, похожего на него. Затем можно спросить, как эта личность поступила бы в конкретной ситуации. Нейросеть отвечает с учётом характера персонажа и ранее предоставленных пользователем данных.</p>
 <a class="chapter-link" href="cases/android/index.html" data-case-link="android">Как устроен AlterEgo <span aria-hidden="true">↗</span></a>
 </div>
 </div>
@@ -492,7 +561,7 @@
 <p class="chapter-type">Каталог дагестанских продуктов</p>
 <h2 id="dag-project">Дагдел</h2>
 <p class="chapter-standfirst">Одна корзина для четырёх разделов.</p>
-<p>Собрал мобильный каталог «Дагестанских деликатесов». В одну корзину можно положить сыр, пирог, курзе и банку урбеча. <span class="chapter-extra">У товаров без указанной цены остаётся пометка «по запросу», остальные входят в предварительную сумму.</span></p>
+<p>Разработал мобильный интернет-магазин «Дагестанские деликатесы». На сайте можно проверить наличие сыров, пирогов, полуфабрикатов и урбеча (ореховой пасты), собрать их в одну корзину и оформить заказ. Товары без указанной цены отмечены «по запросу». Для рабочей версии предусмотрены уведомления менеджеру в ВК, MAX и Telegram. В демо можно проверить наличие и собрать корзину.</p>
 <a class="chapter-link" href="cases/dagdel/index.html" data-case-link="dagdel">Посмотреть каталог и корзину <span aria-hidden="true">↗</span></a>
 </div>
 </div>
@@ -526,7 +595,7 @@
 <article class="folio-piece folio-report" data-case="partners" data-group="sites" hidden>
     <div class="folio-frame"><img loading="lazy" decoding="async" src="cases/partners/partners-three-steps.webp" alt="Три шага на лендинге: обсудить формат, рассказать об AlterEgo, получить вознаграждение за привлечённых клиентов после запуска продаж"></div>
     <div class="folio-caption"><div><p class="folio-kind">Партнёрская программа</p><h3>AlterEgo для авторов</h3></div><a class="folio-open" href="cases/partners/index.html" data-case-link="partners">Открыть кейс <span aria-hidden="true">↗</span></a>
-    <p class="folio-story">Сделал лендинг для авторов блогов. На нём можно выбрать формат публикации и узнать, за что после запуска продаж предусмотрено вознаграждение.</p></div>
+    <p class="folio-story">Сделал лендинг партнёрской программы для авторов контента и блогеров. На нём можно выбрать формат публикации, узнать условия вознаграждения после запуска продаж и связаться с владельцем проекта.</p></div>
   </article>
 <article class="folio-piece folio-report" data-case="modular" data-group="sites" hidden>
     <div class="folio-frame"><img loading="lazy" decoding="async" src="cases/modular/modular-brief-result.webp" alt="Готовый бриф на сайте с назначением помещения, количеством модулей, сезоном и коммуникациями"></div>
@@ -544,19 +613,19 @@
     <p class="folio-story">Сверял остатки по размерам и стоимость рекламы. С 12 марта по 9 июня 2026 года по 54 карточкам оформили 59 заказов и выкупили 36 товаров.</p></div>
   </article>
 <article class="folio-piece folio-fact" data-case="avito" data-group="trade" hidden>
-    <div class="folio-frame"><p class="folio-stat"><b>463</b><span>позиции в таблице запчастей для системы охлаждения</span></p></div>
+    <div class="folio-frame"><p class="folio-stat"><b>463</b> <span>позиции в таблице запчастей для системы охлаждения</span></p></div>
     <div class="folio-caption"><div><p class="folio-kind">Смартфоны и автозапчасти</p><h3>Авито</h3></div><a class="folio-open" href="cases/avito/index.html" data-case-link="avito">Открыть кейс <span aria-hidden="true">↗</span></a>
-    <p class="folio-story">Продавал смартфоны, вёл переписку с покупателями. Для автозапчастей готовил объявления с артикулами, ценами и совместимыми моделями машин.</p></div>
+    <p class="folio-story">Продавал смартфоны, вёл переписку с покупателями. Для автозапчастей готовил объявления с артикулами, ценами и совместимыми моделями машин. Работал с большим ассортиментом через автозагрузку — более 9 000 позиций.</p></div>
   </article>
 <article class="folio-piece folio-illustrated" data-case="nedviga" data-group="data" hidden>
     <div class="folio-frame"><img class="folio-landscape" loading="lazy" decoding="async" src="media/nedviga-paper-house.webp" alt="Миниатюрный дом, сложенный из газетных листов"><img class="folio-square" loading="lazy" decoding="async" src="media/nedviga-paper-house-square.webp" alt="Миниатюрный дом, сложенный из газетных листов"></div>
     <div class="folio-caption"><div><p class="folio-kind">Telegram-дайджест</p><h3>Nedviga News</h3></div><a class="folio-open" href="cases/nedviga/index.html" data-case-link="nedviga">Открыть кейс <span aria-hidden="true">↗</span></a>
-    <p class="folio-story">Подключил сбор новостей о недвижимости. Читатель выбирает рубрики и время, а в выпуске получает краткий обзор со ссылками на публикации.</p></div>
+    <p class="folio-story">Создал бота для ежедневных обзоров недвижимости из нескольких Telegram-каналов. Llama 4 Maverick отбирает новости и распределяет их по рубрикам. DeepSeek-R1 готовит сводку по каждой теме со ссылками на публикации. Читатель сам выбирает рубрики и время доставки.</p></div>
   </article>
 <article class="folio-piece folio-report" data-case="telegram-export" data-group="data" hidden>
     <div class="folio-frame"><img loading="lazy" decoding="async" src="media/archive-telegram-export.webp" alt="Тестовый экспорт прайса с ценой и вложениями"></div>
     <div class="folio-caption"><div><p class="folio-kind">Экспорт в Excel</p><h3>Товарный Telegram-бот</h3></div><a class="folio-open" href="cases/telegram-export/index.html" data-case-link="telegram-export">Открыть кейс <span aria-hidden="true">↗</span></a>
-    <p class="folio-story">Пересылаю боту предложения поставщиков. Названия и цены он заносит в Excel, а фотографии раскладывает по папкам товаров и собирает в ZIP.</p></div>
+    <p class="folio-story">Разработал бота, которому можно переслать товарные посты из разных Telegram-каналов. По команде он собирает сообщения, извлекает названия и цены через API DeepSeek, формирует таблицу Excel, скачивает фотографии и распределяет их по папкам товаров в ZIP-архиве.</p></div>
   </article>
 <article class="folio-piece folio-illustrated" data-case="excel-stock" data-group="data" hidden>
     <div class="folio-frame"><img class="folio-landscape" loading="lazy" decoding="async" src="media/stock-matched-sheets.webp" alt="Две товарные ведомости с выделенной строкой для сверки"><img class="folio-square" loading="lazy" decoding="async" src="media/stock-matched-sheets-square.webp" alt="Две товарные ведомости с выделенной строкой для сверки"></div>
@@ -571,7 +640,7 @@
 <article class="folio-piece folio-report" data-case="power-bi" data-group="data" hidden>
     <div class="folio-frame"><img loading="lazy" decoding="async" src="media/archive-power-bi.webp" alt="Экран командного отчёта о рабочих процессах клиники"></div>
     <div class="folio-caption"><div><p class="folio-kind">Power BI</p><h3>Опрос сотрудников клиники</h3></div><a class="folio-open" href="cases/power-bi/index.html" data-case-link="power-bi">Открыть кейс <span aria-hidden="true">↗</span></a>
-    <p class="folio-story">В команде разбирал ответы 165 сотрудников клиники. В отчёте сравнивали, как разные группы оценивают свои рабочие процессы.</p></div>
+    <p class="folio-story">В командном проекте анализировал ответы 165 сотрудников клиники. Работал с Power BI: подготовкой данных, созданием аналитических отчётов, графиков и визуализаций для сравнения оценок рабочих процессов.</p></div>
   </article></div>
   </div>
 </section>
@@ -583,20 +652,21 @@
   <div class="calling-inner">
     <div class="calling-copy">
       <h2 id="calling-title">Обсудим<br> <i>проект?</i></h2>
-      <p><span class="contact-wide">Идеи для разработки мне часто подсказывает опыт в торговле. Так появился мой бот для закупок. Пересылаю ему сообщения поставщиков и получаю прайс в Excel, а фотографии он раскладывает по папкам.</span><span class="contact-phone">Я знаю торговлю изнутри, а опыт разработки помогает мне находить новые решения для привычных задач. Так я написал бота для закупок. Пересылаю ему сообщения поставщиков и получаю готовый прайс в Excel.</span></p>
-      <p><span class="contact-wide">Расскажите, что хотите сделать. Можно прислать набросок, ссылку на сайт или пример таблицы.</span><span class="contact-phone">Расскажите, что хотите запустить или на что у вас уходит слишком много времени. Предложу, с чего начать.</span></p>
-      <div class="calling-links"><a href="https://profi.ru/profile/GolubkovAV8/">Написать на Профи.ру <span aria-hidden="true">↗</span></a><a href="https://github.com/avdey105">GitHub <span aria-hidden="true">↗</span></a></div>
+      <p><span class="contact-wide">Разнообразный опыт помогает мне находить решения на стыке знаний из разных областей. Опыт в программировании позволяет оптимизировать бизнес-процессы, а опыт в маркетинге — понимать структуру воронки продаж и анализировать конверсию на каждом этапе. Работа с таблицами помогает структурировать хаотичные данные, а нейросети — ускорять работу и повышать её качество.</span><span class="contact-phone">Разнообразный опыт помогает мне находить решения на стыке знаний из разных областей. Программирование позволяет оптимизировать бизнес-процессы, маркетинг — понимать воронку продаж и конверсию на каждом этапе, таблицы — структурировать данные, а нейросети — ускорять работу и повышать её качество.</span></p>
+      <p><span class="contact-wide">Пишите в Telegram, на Профи.ру, на почту или звоните с любой вашей задачей. Я на 98% уверен, что смогу с ней справиться, и гарантирую лучшую цену. Реализую ваш проект качественно и в удобном для вас формате.</span><span class="contact-phone">Пишите в Telegram, на Профи.ру, на почту или звоните. Я на 98% уверен, что справлюсь с вашей задачей, и гарантирую лучшую цену. Реализую проект качественно и в удобном для вас формате.</span></p>
+      <address class="direct-contacts" aria-label="Контактные данные"><a href="https://t.me/AvdeyGolubkov">@AvdeyGolubkov</a> <a href="tel:+79116908287">+7 911 690 82 87</a> <a href="mailto:avdeygolubkov@gmail.com">avdeygolubkov@gmail.com</a></address>
+<div class="calling-links"><a href="https://profi.ru/profile/GolubkovAV8/">Написать на Профи.ру <span aria-hidden="true">↗</span></a><a href="https://github.com/avdey105">GitHub <span aria-hidden="true">↗</span></a></div>
     </div>
   </div>
 </section>
 
 </main>
 <footer id="transport" class="global-foot">
-<button type="button" class="contents-trigger" aria-label="Открыть содержание" aria-haspopup="dialog" aria-controls="contents"><span class="page-index"><strong>01</strong><span> / 10</span></span><span class="current-label">Портфолио</span><span class="caret" aria-hidden="true">⌃</span></button>
-<nav class="deck-stops" aria-label="Быстрый переход по слайдам"><a href="#web" aria-label="Слайд 1. Портфолио"><span>Портфолио</span></a><a href="#ai" aria-label="Слайд 2. Приложения"><span>Приложения</span></a><a href="#shop" aria-label="Слайд 3. Каталоги"><span>Каталоги</span></a><a href="#bot" aria-label="Слайд 4. Автоматизация"><span>Автоматизация</span></a><a href="#analytics" aria-label="Слайд 5. Аналитика"><span>Аналитика</span></a><a href="#holodok" aria-label="Слайд 6. Холодок"><span>Холодок</span></a><a href="#alterego" aria-label="Слайд 7. AlterEgo"><span>AlterEgo</span></a><a href="#dagdel" aria-label="Слайд 8. Дагдел"><span>Дагдел</span></a><a href="#archive" aria-label="Слайд 9. Архив работ"><span>Архив работ</span></a><a href="#contact" aria-label="Слайд 10. Контакт"><span>Контакт</span></a></nav>
+<button type="button" class="contents-trigger" aria-label="Открыть содержание" aria-haspopup="dialog" aria-controls="contents"><span class="page-index"><strong>01</strong><span> / 9</span></span><span class="current-label">Портфолио</span><span class="caret" aria-hidden="true">⌃</span></button>
+<nav class="deck-stops" aria-label="Быстрый переход по слайдам"><a href="#web" aria-label="Слайд 1. Портфолио"><span>Портфолио</span></a><a href="#ai" aria-label="Слайд 2. Приложения"><span>Приложения</span></a><a href="#bot" aria-label="Слайд 3. Автоматизация"><span>Автоматизация</span></a><a href="#analytics" aria-label="Слайд 4. Аналитика"><span>Аналитика</span></a><a href="#holodok" aria-label="Слайд 5. Холодок"><span>Холодок</span></a><a href="#alterego" aria-label="Слайд 6. AlterEgo"><span>AlterEgo</span></a><a href="#dagdel" aria-label="Слайд 7. Дагдел"><span>Дагдел</span></a><a href="#archive" aria-label="Слайд 8. Архив работ"><span>Архив работ</span></a><a href="#contact" aria-label="Слайд 9. Контакт"><span>Контакт</span></a></nav>
 <div class="nav-arrows"><button type="button" data-step="-1" aria-label="Перейти к последнему слайду"><span class="round-chevron go-up" aria-hidden="true"></span></button><button type="button" data-step="1" aria-label="Следующий слайд"><span class="next-word">Дальше</span><span class="round-chevron" aria-hidden="true"></span></button></div>
 </footer><p class="visually-hidden" id="announce" role="status" aria-live="polite"></p>
-<dialog id="contents" aria-label="Содержание"><form method="dialog"><h2>Содержание</h2><button aria-label="Закрыть содержание">×</button></form><nav aria-label="Все слайды"><a href="#web"><small>01</small>Портфолио</a><a href="#ai"><small>02</small>Приложения</a><a href="#shop"><small>03</small>Каталоги</a><a href="#bot"><small>04</small>Автоматизация</a><a href="#analytics"><small>05</small>Аналитика</a><a href="#holodok"><small>06</small>Холодок</a><a href="#alterego"><small>07</small>AlterEgo</a><a href="#dagdel"><small>08</small>Дагдел</a><a href="#archive"><small>09</small>Архив работ</a><a href="#contact"><small>10</small>Контакт</a></nav></dialog>
+<dialog id="contents" aria-label="Содержание"><form method="dialog"><h2>Содержание</h2><button aria-label="Закрыть содержание">×</button></form><nav aria-label="Все слайды"><a href="#web"><small>01</small>Портфолио</a><a href="#ai"><small>02</small>Приложения</a><a href="#bot"><small>03</small>Автоматизация</a><a href="#analytics"><small>04</small>Аналитика</a><a href="#holodok"><small>05</small>Холодок</a><a href="#alterego"><small>06</small>AlterEgo</a><a href="#dagdel"><small>07</small>Дагдел</a><a href="#archive"><small>08</small>Архив работ</a><a href="#contact"><small>09</small>Контакт</a></nav></dialog>
 <section id="reader" class="case-reader" role="region" aria-label="Подробный кейс" tabindex="-1" hidden>
   <header class="rd-nav">
     <span class="rd-case"></span>
@@ -622,39 +692,4 @@
   </nav>
 </section>
 
-<noscript><aside class="no-script"><p>Работы Авдея Голубкова</p><a href="https://github.com/avdey105">GitHub ↗</a> · <a href="https://profi.ru/profile/GolubkovAV8/">Написать на Профи.ру ↗</a></aside></noscript><script src="scene.js" defer></script><script src="projects.js" defer></script><script src="archive.js?v=943707b636c1" defer></script><script src="reader-data.js?v=c9cc4bdf0154" defer></script><script src="reader.js" defer></script><script src="deck.js?v=74b5e5ab5a8d" defer></script><script>
-/* On phones these two consecutive stories share a first and a last line.
-   The catalogue sets the measure, including wrapping with the actual fonts. */
-(() => {
-  const catalogue = document.querySelector('#shop .cover-copy');
-  const nextStory = document.querySelector('#bot .cover-copy');
-  const topic = catalogue.querySelector('.cover-topic');
-  const action = catalogue.querySelector('.story-action');
-  const catalogueTitle = catalogue.querySelector('h2');
-  const nextTitle = nextStory.querySelector('h2');
-  const phone = matchMedia('(max-width: 600px) and (max-aspect-ratio: 4/5), (orientation: landscape) and (pointer: coarse) and (max-width: 960px) and (max-height: 500px)');
-
-  function alignStories() {
-    if (!phone.matches) {
-      nextStory.style.removeProperty('--catalogue-copy-height');
-      nextStory.style.removeProperty('--title-spacing-adjustment');
-      return;
-    }
-    const height = action.getBoundingClientRect().bottom - topic.getBoundingClientRect().top;
-    nextStory.style.setProperty('--catalogue-copy-height', height + 'px');
-    // The two headline faces have different line heights. Redistribute the
-    // same share of that difference without moving the common label or link.
-    const titleDifference = catalogueTitle.getBoundingClientRect().height - nextTitle.getBoundingClientRect().height;
-    nextStory.style.setProperty('--title-spacing-adjustment', .3 * Math.max(0, titleDifference) + 'px');
-  }
-
-  const observer = new ResizeObserver(alignStories);
-  observer.observe(catalogue);
-  for (const child of catalogue.children) observer.observe(child);
-  observer.observe(nextTitle);
-  phone.addEventListener('change', alignStories);
-  document.fonts.ready.then(alignStories);
-  alignStories();
-})();
-
-</script></body></html>
+<noscript><aside class="no-script"><p>Работы Авдея Голубкова</p><a href="https://github.com/avdey105">GitHub ↗</a> · <a href="https://profi.ru/profile/GolubkovAV8/">Написать на Профи.ру ↗</a></aside></noscript><script src="scene.js" defer></script><script src="projects.js" defer></script><script src="archive.js?v=943707b636c1" defer></script><script src="reader-data.js?v=705820ad4a05" defer></script><script src="reader.js" defer></script><script src="deck.js?v=2641eed99e10" defer></script></body></html>
