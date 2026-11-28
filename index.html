@@ -649,7 +649,9 @@
   /* Blend the exposed studio margins into the same photograph. */
   #analytics .cover-photo { background: var(--film) 52% 50% / cover no-repeat; }
   #analytics .cover-photo img {
-    translate: calc(clamp(14px, 1.6vw, 34px) + 20px) 10px;
+    translate: calc(clamp(14px, 1.6vw, 34px) + 8px) 10px;
+    scale: 1.04;
+    transform-origin: 64% 49%;
     mask-image: linear-gradient(90deg, transparent, black 8%),
                 linear-gradient(180deg, transparent, black 6%);
     mask-composite: intersect;
@@ -666,12 +668,24 @@
     column-gap: clamp(28px, 4.2vw, 80px);
   }
 
-  #contact .contact-pointer { visibility: hidden; }
+  #contact .calling-inner { width: min(43%, 60rem); }
+  #contact .calling-copy h2 {
+    font-size: clamp(38px, min(5.1vw, 10.2dvh), 120px);
+    white-space: nowrap;
+  }
+  #contact .calling-copy h2 br,
+  #contact .contact-pointer { display: none; }
+  #contact .direct-contacts { width: max-content; }
+  #contact .direct-contacts .telegram-contact { margin-inline-end: 0; }
+  #contact .calling-copy > p { max-width: min(54ch, clamp(38.5vw, 32rem, 40vw)); }
+  /* Double the visible space, allowing for the serif descenders on the title. */
+  #contact .calling-copy > .contact-desktop-intro { margin-top: clamp(21px, 4.4dvh - 3px, 49px); }
+  #contact .contact-ending { white-space: nowrap; }
+  #contact.calling-slide .cover-photo::before {
+    --right-room: calc(.5 * min(4.4vw, .057 * var(--plate-width)) - .0135 * var(--portrait-width) + clamp(7px, .7vw, 12px));
+  }
   @media (max-height: 610px) {
-    #contact .calling-copy h2 br { display: revert; }
-    @media (max-width: 1199px), (max-height: 539px) {
-      #contact .calling-copy h2 { font-size: min(7.5dvh, 48px); }
-    }
+    #contact .calling-copy > .contact-desktop-intro { margin-top: 13px; }
     @media (max-width: 1199px) and (max-height: 505px) {
       #contact .calling-inner { width: 49%; }
       #contact .calling-copy > p { max-width: none; }
@@ -917,7 +931,7 @@
     <div class="calling-copy">
       <h2 id="calling-title">Обсудим<br> <i>проект?</i></h2>
       <p class="contact-desktop-intro"><span class="contact-wide">Разнообразный опыт помогает мне находить решения на стыке знаний из разных областей. Опыт в программировании позволяет оптимизировать бизнес-процессы, а опыт в маркетинге — понимать структуру воронки продаж и анализировать конверсию на каждом этапе. Работа с таблицами помогает структурировать хаотичные данные, а нейросети — ускорять работу и повышать её качество.</span></p>
-      <p><span class="contact-wide">Пишите, звоните — всегда на связи. Я уверен, что справлюсь практически с любой вашей задачей. <strong>Я гарантирую вам лучшую цену и реализую проект качественно, быстро и в удобном для вас формате.</strong></span><span class="contact-phone">Пишите, звоните — всегда на связи. Я уверен, что справлюсь практически с любой вашей задачей, так как разнообразный опыт помогает мне находить решения на стыке знаний из разных областей. <strong>Я гарантирую вам лучшую цену и реализую проект качественно, быстро и в удобном для вас формате.</strong></span></p>
+      <p><span class="contact-wide">Пишите, звоните — всегда на связи. Я уверен, что справлюсь практически с любой вашей задачей. <strong>Я гарантирую вам лучшую цену и реализую проект качественно, быстро <span class="contact-ending">и в удобном для вас формате.</span></strong></span><span class="contact-phone">Пишите, звоните — всегда на связи. Я уверен, что справлюсь практически с любой вашей задачей, так как разнообразный опыт помогает мне находить решения на стыке знаний из разных областей. <strong>Я гарантирую вам лучшую цену и реализую проект качественно, быстро и в удобном для вас формате.</strong></span></p>
       <address class="direct-contacts" aria-label="Контактные данные">
         <a href="tel:+79116908287">+7 911 690 82 87</a>
         <a class="telegram-contact" href="https://t.me/AvdeyGolubkov" aria-label="Написать в Telegram: @AvdeyGolubkov">
