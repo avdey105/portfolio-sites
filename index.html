@@ -612,7 +612,6 @@
   :is(#web, #ai, #bot, #analytics) .cover-deck,
   :is(#holodok, #alterego, #dagdel) .chapter-copy > p:not([class]),
   #archive .folio-story,
-  #contact .calling-copy > p,
   #reader .rd-content p {
     font-size: var(--desktop-body-size);
     line-height: 1.38;
@@ -620,6 +619,15 @@
   }
 
   #web .cover-topic { visibility: hidden; }
+  #web .cover-copy h2 {
+    font-size: calc(.95 * var(--welcome-title-size));
+    /* Reserve the original line boxes so the introduction keeps its baseline. */
+    min-block-size: calc(var(--welcome-lines, 2) * .98 * var(--welcome-title-size));
+    translate: 0 -.005em;
+  }
+  @media (max-height: 380px) {
+    #web { --welcome-lines: 1; }
+  }
 
   #ai .cover-copy { width: 45.5%; }
   #ai .cover-full { display: block; }
@@ -638,11 +646,13 @@
   #analytics h2 + .cover-deck { margin-top: clamp(10px, 1.8dvh, 22px); }
   #analytics .cover-actions a { margin-top: clamp(6px, 1.4dvh, 16px); }
 
-  /* Crossfade the empty left margin into the same studio photograph. */
+  /* Blend the exposed studio margins into the same photograph. */
   #analytics .cover-photo { background: var(--film) 52% 50% / cover no-repeat; }
   #analytics .cover-photo img {
-    translate: clamp(14px, 1.6vw, 34px) 0;
-    mask-image: linear-gradient(90deg, transparent, black 8%);
+    translate: calc(clamp(14px, 1.6vw, 34px) + 20px) 10px;
+    mask-image: linear-gradient(90deg, transparent, black 8%),
+                linear-gradient(180deg, transparent, black 6%);
+    mask-composite: intersect;
   }
 
   #alterego .chapter-standfirst {
@@ -656,17 +666,16 @@
     column-gap: clamp(28px, 4.2vw, 80px);
   }
 
-  #contact .contact-pointer { display: none; }
-  #contact .telegram-contact { margin-inline-end: 0; }
-  #contact .calling-inner { width: min(43%, 60rem); }
-  #contact .calling-copy h2 {
-    font-size: clamp(46px, min(5vw, 10.2dvh), 114px);
-    white-space: nowrap;
-  }
-  #contact .calling-copy h2 br { display: none; }
-  #contact .calling-copy > p { max-width: min(53ch, 37.6vw); }
-  #contact.calling-slide .cover-photo::before {
-    --right-room: calc(.5 * min(4.4vw, .057 * var(--plate-width)) - .0135 * var(--portrait-width) + clamp(18px, 2vw, 40px));
+  #contact .contact-pointer { visibility: hidden; }
+  @media (max-height: 610px) {
+    #contact .calling-copy h2 br { display: revert; }
+    @media (max-width: 1199px), (max-height: 539px) {
+      #contact .calling-copy h2 { font-size: min(7.5dvh, 48px); }
+    }
+    @media (max-width: 1199px) and (max-height: 505px) {
+      #contact .calling-inner { width: 49%; }
+      #contact .calling-copy > p { max-width: none; }
+    }
   }
 }
 
