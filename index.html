@@ -604,6 +604,52 @@
   .chapter-copy > p:not([class]) { min-block-size: 6lh; }
 }
 
+@media (min-width: 961px) and (min-aspect-ratio: 1/1) and (hover: hover) and (pointer: fine) {
+  /* Retain the introduction's baseline while lifting the headline into the
+     space between the wordmark and the first paragraph. */
+  #web .cover-topic { visibility: hidden; }
+  #web-title { translate: 0 clamp(-34px, -3.3dvh, -18px); }
+
+  #ai .cover-copy { width: 45.5%; }
+  #ai .cover-full { display: block; }
+  #ai .cover-compact { display: none; }
+  #ai .desktop-detail { display: inline; }
+  #ai .cover-deck { max-width: 57ch; }
+  #ai :is(.cover-topic, #ai-title) { translate: 0 clamp(-12px, -1.25dvh, -7px); }
+
+  #bot .cover-deck { max-width: min(40ch, 100%); }
+
+  /* Crossfade the empty left margin into the same studio photograph. */
+  #analytics .cover-photo { background: var(--film) 52% 50% / cover no-repeat; }
+  #analytics .cover-photo img {
+    translate: clamp(14px, 1.6vw, 34px) 0;
+    mask-image: linear-gradient(90deg, transparent, black 8%);
+  }
+
+  #alterego .chapter-standfirst {
+    max-width: 100%;
+    font-size: clamp(22px, min(2.15vw, 4.5dvh), 42px);
+    margin-bottom: clamp(6px, .85dvh, 9px);
+  }
+
+  #contact .contact-pointer { display: none; }
+  #contact .telegram-contact { margin-inline-end: 0; }
+  #contact .calling-inner { width: min(43%, 60rem); }
+  #contact .calling-copy h2 {
+    font-size: clamp(46px, min(5vw, 10.2dvh), 114px);
+    white-space: nowrap;
+  }
+  #contact .calling-copy h2 br { display: none; }
+  #contact .calling-copy > p { max-width: min(53ch, 37.6vw); }
+  #contact.calling-slide .cover-photo::before {
+    --right-room: calc(.5 * min(4.4vw, .057 * var(--plate-width)) - .0135 * var(--portrait-width) + clamp(18px, 2vw, 40px));
+  }
+}
+
+@media (min-width: 961px) and (1/1 <= aspect-ratio <= 3/2) and (hover: hover) and (pointer: fine) {
+  #analytics .cover-photo { background-image: url('plates/05-glass-square.webp'); }
+}
+
 </style></head><body data-tone="dark"><a class="skip-link" href="#archive">К списку работ</a>
 <header id="mast" class="global-mast"><a class="wordmark" href="#web" aria-label="Авдей Голубков, первый слайд">Авдей Голубков.</a><nav aria-label="Разделы портфолио"><a href="#holodok">Проекты</a><a href="#archive">Архив</a><a href="#contact">Контакт</a></nav></header>
 <main id="deck" aria-label="Портфолио, слайды"><h1 class="visually-hidden">Портфолио Авдея Голубкова</h1>
@@ -612,7 +658,7 @@
 <div class="cover-copy"><p class="cover-topic">Веб-разработка</p><h2 id="web-title">Сайты<br> под ключ.</h2><p class="cover-deck">Здесь собрана большая часть моих работ. К каждой добавил описание. Если код открыт, рядом есть ссылка на GitHub.</p><p class="cover-deck cover-service">Делаю сайты, пишу ботов, автоматизирую работу и бизнес-процессы. Несколько лет вёл интернет-магазины и настраивал рекламу. Имею большой опыт в маркетинге, уверенно работаю с таблицами, нейросетями и лучшими на данный момент инструментами для генерации фото- и видеоконтента.</p><a class="story-action" href="about.html">Подробнее обо мне <span aria-hidden="true">↗</span></a></div></div></section>
 <section data-slide id="ai" data-label="Приложения" data-tone="dark" class="slide cover cover-ai " inert aria-hidden="true" aria-labelledby="ai-title">
     <picture class="cover-photo"><source media="(max-aspect-ratio: 4/5)" srcset="plates/02-metal-phone.webp"><img src="plates/02-metal-wide.webp" width="1664" height="936" alt="Два человеческих профиля проступают в складках одной полированной стальной ленты." loading="lazy" decoding="async"></picture>
-<div class="cover-copy"><p class="cover-topic">AlterEgo</p><h2 id="ai-title">Разработка<br> <i>приложений</i></h2><div class="cover-full"><p class="cover-deck">Заказчику нужен был MVP для инвестора. Я с нуля разработал на React Native кроссплатформенное приложение AlterEgo для iOS и Android.</p><p class="cover-deck cover-service">Сам сделал интерфейс и сервер, настроил вход через Google и хранение профилей. Чат ведёт DeepSeek, портреты создаёт GPT Image от OpenAI.</p></div><div class="cover-compact"><p class="cover-deck">Умею разрабатывать и создавать мобильные приложения с нуля. Хорошо работаю с фреймворком React Native.</p><p class="cover-deck">Например, заказчику нужен был MVP для инвестора. Я разработал кроссплатформенное приложение AlterEgo для iOS и Android.</p><p class="cover-deck">Сам сделал интерфейс и сервер, настроил вход через Google и хранение профилей. Чат ведёт DeepSeek, портреты создаёт GPT Image от OpenAI.</p></div><a class="story-action" href="#alterego">Посмотреть AlterEgo <span aria-hidden="true">↗</span></a></div></section>
+<div class="cover-copy"><p class="cover-topic">AlterEgo</p><h2 id="ai-title">Разработка<br> <i>приложений</i></h2><div class="cover-full"><p class="cover-deck">Заказчику нужен был MVP для инвестора. Я с нуля разработал на React Native кроссплатформенное приложение AlterEgo для iOS и Android.<span class="desktop-detail" hidden> В нём можно создать улучшенную версию себя, подобрать стиль по фото и обратиться за советом к нейросети.</span></p><p class="cover-deck cover-service">Сам сделал интерфейс и сервер, настроил вход через Google и хранение профилей. Чат ведёт DeepSeek, портреты создаёт GPT Image от OpenAI.</p></div><div class="cover-compact"><p class="cover-deck">Умею разрабатывать и создавать мобильные приложения с нуля. Хорошо работаю с фреймворком React Native.</p><p class="cover-deck">Например, заказчику нужен был MVP для инвестора. Я разработал кроссплатформенное приложение AlterEgo для iOS и Android.</p><p class="cover-deck">Сам сделал интерфейс и сервер, настроил вход через Google и хранение профилей. Чат ведёт DeepSeek, портреты создаёт GPT Image от OpenAI.</p></div><a class="story-action" href="#alterego">Посмотреть AlterEgo <span aria-hidden="true">↗</span></a></div></section>
 <section data-slide id="bot" data-label="Автоматизация" data-tone="dark" class="slide cover cover-bot " inert aria-hidden="true" aria-labelledby="bot-title">
     <figure class="export-scene" aria-label="Как бот превращает подборку постов в прайс">
   <div class="export-command">
