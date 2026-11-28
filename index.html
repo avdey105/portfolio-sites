@@ -605,10 +605,21 @@
 }
 
 @media (min-width: 961px) and (min-aspect-ratio: 1/1) and (hover: hover) and (pointer: fine) {
-  /* Retain the introduction's baseline while lifting the headline into the
-     space between the wordmark and the first paragraph. */
+  /* One reading size from the introduction through the full case stories. */
+  :root {
+    --desktop-body-size: clamp(16px, min(12px + .65vw, 2.72dvh), 23px);
+  }
+  :is(#web, #ai, #bot, #analytics) .cover-deck,
+  :is(#holodok, #alterego, #dagdel) .chapter-copy > p:not([class]),
+  #archive .folio-story,
+  #contact .calling-copy > p,
+  #reader .rd-content p {
+    font-size: var(--desktop-body-size);
+    line-height: 1.38;
+    letter-spacing: -.015em;
+  }
+
   #web .cover-topic { visibility: hidden; }
-  #web-title { translate: 0 clamp(-34px, -3.3dvh, -18px); }
 
   #ai .cover-copy { width: 45.5%; }
   #ai .cover-full { display: block; }
@@ -617,7 +628,15 @@
   #ai .cover-deck { max-width: 57ch; }
   #ai :is(.cover-topic, #ai-title) { translate: 0 clamp(-12px, -1.25dvh, -7px); }
 
-  #bot .cover-deck { max-width: min(40ch, 100%); }
+  #bot .cover-deck { max-width: min(44ch, 100%); }
+  #bot .export-table { font-size: clamp(var(--desktop-body-size), 3.55cqw, 30px); }
+  #bot .export-table thead th { font-size: .72em; }
+
+  #analytics .cover-copy { width: clamp(32.5%, 16vw + 315px, 38%); }
+  #analytics .cover-copy h2 { font-size: clamp(34px, min(6.8vw, 11.8dvh), 138px); }
+  #analytics .cover-topic { margin-bottom: clamp(8px, 1.5dvh, 18px); }
+  #analytics h2 + .cover-deck { margin-top: clamp(10px, 1.8dvh, 22px); }
+  #analytics .cover-actions a { margin-top: clamp(6px, 1.4dvh, 16px); }
 
   /* Crossfade the empty left margin into the same studio photograph. */
   #analytics .cover-photo { background: var(--film) 52% 50% / cover no-repeat; }
@@ -630,6 +649,11 @@
     max-width: 100%;
     font-size: clamp(22px, min(2.15vw, 4.5dvh), 42px);
     margin-bottom: clamp(6px, .85dvh, 9px);
+  }
+  #alterego .chapter-copy > p:not([class]) { max-width: min(100%, 46ch); }
+  #reader[data-case="android"] .rd-stage {
+    grid-template-columns: minmax(0, 1.06fr) minmax(0, 1.1fr);
+    column-gap: clamp(28px, 4.2vw, 80px);
   }
 
   #contact .contact-pointer { display: none; }
@@ -648,6 +672,13 @@
 
 @media (min-width: 961px) and (1/1 <= aspect-ratio <= 3/2) and (hover: hover) and (pointer: fine) {
   #analytics .cover-photo { background-image: url('plates/05-glass-square.webp'); }
+}
+
+@media (961px <= width <= 1200px) and (min-aspect-ratio: 1/1) and (hover: hover) and (pointer: fine) {
+  #web .cover-copy { width: 52%; }
+  @media (min-height: 700px) {
+    #web .cover-copy { top: calc(50% + 12px); }
+  }
 }
 
 </style></head><body data-tone="dark"><a class="skip-link" href="#archive">К списку работ</a>
