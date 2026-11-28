@@ -500,6 +500,59 @@
   #analytics .cover-photo { --landscape-width: min(87vw, 146dvh); right: -8.7vw; }
 }
 
+/* The approved sculpture occupies the same studio frame as on the two-paragraph
+   edition. Reserve that frame independently of the article's actual length. */
+@media (pointer: coarse) and (max-width: 600px) and (max-aspect-ratio: 4/5) {
+  #ai {
+    --frame-lines: 9;
+    --frame-leading: 1.33;
+    --frame-paragraph-gap: .6em;
+    --copy-lift: clamp(17px, 11.5dvh - 46px, 58px);
+    --copy-tail: clamp(5px, 1.14dvh, 9px);
+  }
+  #ai .cover-copy { top: calc(.5 * var(--phone-free-gap) - var(--copy-lift)); }
+  #ai.cover .cover-copy > .cover-compact {
+    --frame-line: round(nearest, 1lh, .015625px);
+    --frame-gap: round(down, var(--frame-paragraph-gap), .015625px);
+    width: 100%;
+    flex: none;
+    font-size: clamp(14px,3.6vw,20px);
+    line-height: var(--frame-leading);
+    height: calc(11px + var(--frame-gap) + var(--frame-lines) * var(--frame-line) + var(--copy-lift) + var(--copy-tail));
+    margin-bottom: calc(clamp(7px,1.25dvh,12px) - var(--copy-lift) - var(--copy-tail));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    touch-action: pan-y pinch-zoom;
+    scrollbar-width: thin;
+  }
+  #ai .cover-compact .cover-deck {
+    max-width: none;
+    font-size: clamp(14px,3.55vw,19px);
+    line-height: 1.29;
+    margin-top: 7px;
+  }
+  #ai .cover-compact .cover-deck + .cover-deck { margin-top: .4em; }
+  #ai .cover-copy > .story-action { position: relative; top: var(--copy-lift); }
+}
+@media (pointer: coarse) and (max-aspect-ratio: 4/5) and (min-height: 691px) {
+  @media (width < 376px) { #ai { --frame-lines: 10; } }
+  @media (width < 324px) { #ai { --frame-lines: 11; } }
+  @media (width < 310px) { #ai { --frame-lines: 12; } }
+  @media (width < 284px) { #ai { --frame-lines: 13; } }
+  @media (562px <= width <= 600px) { #ai { --frame-lines: 8; } }
+}
+@media (pointer: coarse) and (max-width: 600px) and (max-aspect-ratio: 4/5) and (max-height: 690px) {
+  #ai { --frame-lines: 8; --frame-leading: 1.29; --frame-paragraph-gap: .46em; }
+  @media (width < 372px) { #ai { --frame-lines: 9; } }
+  @media (width < 354px) { #ai { --frame-lines: 10; } }
+  @media (width < 312px) { #ai { --frame-lines: 11; } }
+  @media (width < 298px) { #ai { --frame-lines: 12; } }
+}
+@media (pointer: coarse) and (max-width: 340px) and (max-height: 610px) and (max-aspect-ratio: 4/5) {
+  #ai .cover-compact .cover-deck { font-size: 13px; line-height: 1.24; margin-top: 5px; }
+  #ai .cover-compact .cover-deck + .cover-deck { margin-top: .32em; }
+}
+
 @media (max-width: 600px) and (max-aspect-ratio: 4/5),
        (orientation: landscape) and (pointer: coarse) and (max-width: 960px) and (max-height: 500px) {
   .chapter-copy > [data-case-copy="wide"] { display: none; }
@@ -556,10 +609,10 @@
 <main id="deck" aria-label="Портфолио, слайды"><h1 class="visually-hidden">Портфолио Авдея Голубкова</h1>
 <section data-slide id="web" data-label="Портфолио" data-tone="dark" class="slide cover cover-web is-active"  aria-labelledby="web-title">
     <div data-welcome-frame="1" style="--https-plate:url('plates/intro-01-https-phone.webp?v=dd6b5cffc6b1');--welcome-plate:url('plates/intro-01-phone.webp?v=a14f1e85f58b');--wide-plate:url('plates/intro-01-wide.webp')"><picture class="cover-photo"><source media="(max-width: 600px) and (max-aspect-ratio: 4/5)" srcset="plates/intro-01-https-phone.webp?v=dd6b5cffc6b1"><source media="(max-aspect-ratio: 4/5)" srcset="plates/intro-01-phone.webp?v=a14f1e85f58b"><img src="plates/intro-01-wide.webp" width="1664" height="936" alt="Ледяной курсор на красном фоне." fetchpriority="high"></picture>
-<div class="cover-copy"><p class="cover-topic">Веб-разработка</p><h2 id="web-title">Сайты<br> под ключ.</h2><p class="cover-deck">Здесь я собрал большую часть своих работ. К каждой добавил описание. Если код открыт, рядом есть ссылка на GitHub.</p><p class="cover-deck cover-service">Делаю сайты, пишу ботов и автоматизирую работу с данными. Несколько лет вёл интернет-магазины и настраивал рекламу. Имею большой опыт в маркетинге, уверенно работаю с нейросетями и использую разные платные ИИ-инструменты для генерации фото и видео, работы с промптами и кодом.</p><a class="story-action" href="about.html">Подробнее обо мне <span aria-hidden="true">↗</span></a></div></div></section>
+<div class="cover-copy"><p class="cover-topic">Веб-разработка</p><h2 id="web-title">Сайты<br> под ключ.</h2><p class="cover-deck">Здесь собрана большая часть моих работ. К каждой добавил описание. Если код открыт, рядом есть ссылка на GitHub.</p><p class="cover-deck cover-service">Делаю сайты, пишу ботов, автоматизирую работу и бизнес-процессы. Несколько лет вёл интернет-магазины и настраивал рекламу. Имею большой опыт в маркетинге, уверенно работаю с таблицами, нейросетями и лучшими на данный момент инструментами для генерации фото- и видеоконтента.</p><a class="story-action" href="about.html">Подробнее обо мне <span aria-hidden="true">↗</span></a></div></div></section>
 <section data-slide id="ai" data-label="Приложения" data-tone="dark" class="slide cover cover-ai " inert aria-hidden="true" aria-labelledby="ai-title">
     <picture class="cover-photo"><source media="(max-aspect-ratio: 4/5)" srcset="plates/02-metal-phone.webp"><img src="plates/02-metal-wide.webp" width="1664" height="936" alt="Два человеческих профиля проступают в складках одной полированной стальной ленты." loading="lazy" decoding="async"></picture>
-<div class="cover-copy"><p class="cover-topic">AlterEgo</p><h2 id="ai-title">Разработка<br> <i>приложений</i></h2><div class="cover-full"><p class="cover-deck">Заказчику нужен был MVP для показа инвестору. По его заказу я разработал кроссплатформенное приложение для создания альтер эго (alter ego) на iOS и Android. В нём можно создать своё второе «я» — улучшенную версию себя, подобрать стиль по фотографии и обратиться за советом к нейросети.</p><p class="cover-deck cover-service">Сам сделал интерфейс и сервер, настроил вход через Google и сохранение профилей. Для чата подключил DeepSeek, для портретов — GPT Image от OpenAI.</p></div><div class="cover-compact"><p class="cover-deck">Заказчику нужен был MVP для инвестора. Разработал кроссплатформенное приложение AlterEgo для iOS и Android. В нём можно создать улучшенную версию себя, подобрать стиль по фото и обратиться за советом к нейросети.</p><p class="cover-deck">Сам сделал интерфейс и сервер, настроил вход через Google и хранение профилей. Чат ведёт DeepSeek, портреты создаёт GPT Image от OpenAI.</p></div><a class="story-action" href="#alterego">Посмотреть AlterEgo <span aria-hidden="true">↗</span></a></div></section>
+<div class="cover-copy"><p class="cover-topic">AlterEgo</p><h2 id="ai-title">Разработка<br> <i>приложений</i></h2><div class="cover-full"><p class="cover-deck">Заказчику нужен был MVP для инвестора. Я с нуля разработал на React Native кроссплатформенное приложение AlterEgo для iOS и Android. В нём можно создать улучшенную версию себя, подобрать стиль по фото и обратиться за советом к нейросети.</p><p class="cover-deck cover-service">Сам сделал интерфейс и сервер, настроил вход через Google и хранение профилей. Чат ведёт DeepSeek, портреты создаёт GPT Image от OpenAI.</p></div><div class="cover-compact"><p class="cover-deck">Умею разрабатывать и создавать мобильные приложения с нуля. Хорошо работаю с фреймворком React Native.</p><p class="cover-deck">Например, заказчику нужен был MVP для инвестора. Я разработал кроссплатформенное приложение AlterEgo для iOS и Android. В нём можно создать улучшенную версию себя, подобрать стиль по фото и обратиться за советом к нейросети.</p><p class="cover-deck">Сам сделал интерфейс и сервер, настроил вход через Google и хранение профилей. Чат ведёт DeepSeek, портреты создаёт GPT Image от OpenAI.</p></div><a class="story-action" href="#alterego">Посмотреть AlterEgo <span aria-hidden="true">↗</span></a></div></section>
 <section data-slide id="bot" data-label="Автоматизация" data-tone="dark" class="slide cover cover-bot " inert aria-hidden="true" aria-labelledby="bot-title">
     <figure class="export-scene" aria-label="Как бот превращает подборку постов в прайс">
   <div class="export-command">
@@ -778,7 +831,7 @@
     <div class="calling-copy">
       <h2 id="calling-title">Обсудим<br> <i>проект?</i></h2>
       <p class="contact-desktop-intro"><span class="contact-wide">Разнообразный опыт помогает мне находить решения на стыке знаний из разных областей. Опыт в программировании позволяет оптимизировать бизнес-процессы, а опыт в маркетинге — понимать структуру воронки продаж и анализировать конверсию на каждом этапе. Работа с таблицами помогает структурировать хаотичные данные, а нейросети — ускорять работу и повышать её качество.</span></p>
-      <p><span class="contact-wide">Пишите в Telegram, на Профи.ру, на почту или звоните с любой вашей задачей. Я на 98% уверен, что смогу с ней справиться, и гарантирую лучшую цену. Реализую ваш проект качественно и в удобном для вас формате.</span><span class="contact-phone">Пишите в Telegram, на Профи.ру, на почту или звоните. Я на 98% уверен, что справлюсь с вашей задачей, так как мой разнообразный опыт помогает мне находить решения на стыке знаний из разных областей. Я гарантирую вам лучшую цену и реализую проект качественно и в удобном для вас формате.</span></p>
+      <p><span class="contact-wide">Пишите, звоните — всегда на связи. Я уверен, что справлюсь практически с любой вашей задачей. <strong>Я гарантирую вам лучшую цену и реализую проект качественно, быстро и в удобном для вас формате.</strong></span><span class="contact-phone">Пишите, звоните — всегда на связи. Я уверен, что справлюсь практически с любой вашей задачей, так как разнообразный опыт помогает мне находить решения на стыке знаний из разных областей. <strong>Я гарантирую вам лучшую цену и реализую проект качественно, быстро и в удобном для вас формате.</strong></span></p>
       <address class="direct-contacts" aria-label="Контактные данные"><a href="https://t.me/AvdeyGolubkov">@AvdeyGolubkov</a> <a href="tel:+79116908287">+7 911 690 82 87</a> <a href="mailto:avdeygolubkov@gmail.com">avdeygolubkov@gmail.com</a></address>
 <div class="calling-links"><a href="https://profi.ru/profile/GolubkovAV8/">Написать на Профи.ру <span aria-hidden="true">↗</span></a><a href="https://github.com/avdey105">GitHub <span aria-hidden="true">↗</span></a></div>
     </div>
@@ -817,4 +870,4 @@
   </nav>
 </section>
 
-<noscript><aside class="no-script"><p>Работы Авдея Голубкова</p><a href="https://github.com/avdey105">GitHub ↗</a> · <a href="https://profi.ru/profile/GolubkovAV8/">Написать на Профи.ру ↗</a></aside></noscript><script src="scene.js" defer></script><script src="projects.js" defer></script><script src="archive.js?v=943707b636c1" defer></script><script src="reader-data.js?v=705820ad4a05" defer></script><script src="reader.js" defer></script><script src="deck.js?v=2641eed99e10" defer></script></body></html>
+<noscript><aside class="no-script"><p>Работы Авдея Голубкова</p><a href="https://github.com/avdey105">GitHub ↗</a> · <a href="https://profi.ru/profile/GolubkovAV8/">Написать на Профи.ру ↗</a></aside></noscript><script src="scene.js" defer></script><script src="projects.js" defer></script><script src="archive.js?v=943707b636c1" defer></script><script src="reader-data.js?v=3a48d9455245" defer></script><script src="reader.js" defer></script><script src="deck.js?v=13f288635fc3" defer></script></body></html>
